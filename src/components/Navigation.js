@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   ProSidebar,
@@ -18,7 +18,21 @@ import {
 import 'react-pro-sidebar/dist/css/styles.css';
 
 export default function Navigation() {
-  const [activeMenu, setActiveMenu] = useState(0);
+  const storedValueAsNumber = Number(localStorage.getItem('activeMenu'));
+  const [activeMenu, setActiveMenu] = useState(
+    Number.isInteger(storedValueAsNumber) ? storedValueAsNumber : 0,
+  );
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      localStorage.setItem('activeMenu', String(activeMenu));
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [activeMenu]);
+
   return (
     <ProSidebar>
       <SidebarHeader>
