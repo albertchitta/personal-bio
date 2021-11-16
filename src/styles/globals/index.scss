@@ -17,6 +17,8 @@ body {
 
     .pro-sidebar-inner {
       background-color: $sidebar-bg-color;
+      position: fixed;
+      width: $sidebar-width;
     }
 
     .pro-sidebar-header {

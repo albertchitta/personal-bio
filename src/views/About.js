@@ -4,6 +4,10 @@ import styled from 'styled-components';
 const AboutStyle = styled.div`
   h1 {
     color: white;
+    font-size: 45px;
+    font-weight: 800;
+    margin-top: 116px;
+    margin-left: 18px;
   }
 `;
 
