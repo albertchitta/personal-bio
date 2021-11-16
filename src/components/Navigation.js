@@ -17,6 +17,8 @@ import {
 } from 'react-icons/fa';
 import 'react-pro-sidebar/dist/css/styles.css';
 
+// TODO: Fix active menu
+
 export default function Navigation() {
   const storedValueAsNumber = Number(localStorage.getItem('activeMenu'));
   const [activeMenu, setActiveMenu] = useState(
