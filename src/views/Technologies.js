@@ -1,41 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const TechnologiesStyle = styled.div`
-  display: flex;
+  position: absolute;
 
-  h1 {
-    color: white;
-    font-size: 45px;
-    font-weight: 800;
-    margin-top: 116px;
-    margin-left: 18px;
+  .title {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      color: white;
+      font-size: 45px;
+      font-weight: 800;
+      margin-top: 116px;
+      margin-left: 18px;
+    }
+
+    a {
+      height: 10px;
+      margin-top: 135px;
+      margin-right: 50px;
+      margin-left: 100px;
+
+      i {
+        color: green;
+        font-size: 25px;
+        font-weight: 800;
+      }
+    }
   }
 
   .card-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
     width: 100%;
-    margin-top: 200px;
+    margin: 50px auto;
+    justify-content: center;
 
     .card {
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
       border-radius: 6px;
-      margin: 18px;
       background-color: #191c26;
-
-      .card-title,
-      .card-text,
-      i {
-        color: white;
-      }
+      // border: none;
+      border-color: white;
+      justify-content: center;
 
       img {
         width: 100px;
         height: 100px;
-        // object-fit: cover;
+        margin: 0 auto;
+      }
+
+      .card-title {
+        color: white;
+        text-align: center;
       }
     }
   }
@@ -44,7 +64,12 @@ const TechnologiesStyle = styled.div`
 export default function Technologies() {
   return (
     <TechnologiesStyle>
-      <h1>Technologies</h1>
+      <div className="title">
+        <h1>Technologies</h1>
+        <Link to="/add-technology">
+          <i className="fas fa-plus" />
+        </Link>
+      </div>
       <div className="card-container">
         <div className="card">
           <img

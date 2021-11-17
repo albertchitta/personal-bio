@@ -2,6 +2,7 @@
 
 body {
   background-color: $favColor !important;
+  display: flex;
 
   .pro-sidebar {
     background-color: $sidebar-bg-color;
@@ -57,6 +58,15 @@ body {
     .pro-sidebar-footer {
       padding: 48px 40px;
       justify-content: center;
+      
+      a {
+        color: $sidebar-color;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #527ca6;
+      }
     }
   }
 }

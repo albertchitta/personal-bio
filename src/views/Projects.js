@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ProjectsStyle = styled.div`
+  position: absolute;
+
   h1 {
     color: white;
     font-size: 45px;

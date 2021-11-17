@@ -16,8 +16,13 @@ import {
   FaEnvelope,
 } from 'react-icons/fa';
 import 'react-pro-sidebar/dist/css/styles.css';
+// import { signInUser } from '../api/auth';
 
 // TODO: Fix active menu
+
+// const handleOnClick = () => {
+//   signInUser();
+// };
 
 export default function Navigation() {
   const storedValueAsNumber = Number(localStorage.getItem('activeMenu'));
@@ -102,7 +107,9 @@ export default function Navigation() {
         </Menu>
       </SidebarContent>
       <SidebarFooter>
-        <h4>Email</h4>
+        <h6>
+          <a href="...">Admin Login</a>
+        </h6>
       </SidebarFooter>
     </ProSidebar>
   );
