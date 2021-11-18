@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { createTechnology } from '../api/data/technologyData';
+import { createTechnology, updateTechnology } from '../api/data/technologyData';
 
 const FormStyle = styled.div`
   border-style: solid;
@@ -29,9 +29,13 @@ const initialState = {
   name: '',
 };
 
-export default function TechnologyForm({ technology, user }) {
+export default function TechnologyForm({
+  technology,
+  user,
+  setEditTechnology,
+}) {
   const [formInput, setFormInput] = useState(initialState);
-  // const [technologies, setTechnologies] = useState([]);
+  const [technologies, setTechnologies] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -51,6 +55,11 @@ export default function TechnologyForm({ technology, user }) {
     };
   }, [technology]);
 
+  const resetForm = () => {
+    setFormInput(initialState);
+    setEditTechnology({});
+  };
+
   const handleChange = (e) => {
     setFormInput((prevState) => ({
       ...prevState,
@@ -58,28 +67,22 @@ export default function TechnologyForm({ technology, user }) {
     }));
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (technology.firebaseKey) {
-  //     updatePlayer(formInput).then((players) => {
-  //       setPlayers(players);
-  //       resetForm();
-  //       history.push('/team');
-  //     });
-  //   } else {
-  //     createPlayer({ ...formInput, uid: user.uid }).then((players) => {
-  //       setPlayers(players);
-  //       resetForm();
-  //       history.push('/team');
-  //     });
-  //   }
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    createTechnology(formInput).then(() => {
-      history.push('/technologies');
-    });
+    if (technology.firebaseKey) {
+      updateTechnology(formInput).then(() => {
+        setTechnologies(technologies);
+        resetForm();
+        history.push('/technologies');
+      });
+    } else {
+      // { ...formInput, uid: user.uid }
+      createTechnology(formInput).then(() => {
+        setTechnologies(technologies);
+        resetForm();
+        history.push('/technologies');
+      });
+    }
   };
 
   return (
@@ -123,6 +126,7 @@ TechnologyForm.propTypes = {
     name: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
+  setEditTechnology: PropTypes.func.isRequired,
   user: PropTypes.shape({
     uid: PropTypes.string,
   }).isRequired,

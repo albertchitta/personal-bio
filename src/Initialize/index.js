@@ -11,6 +11,7 @@ const ContainerStyle = styled.div`
 
 function Initialize() {
   const [user, setUser] = useState(null);
+  const [editTechnology, setEditTechnology] = useState({});
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -28,7 +29,11 @@ function Initialize() {
   return (
     <ContainerStyle>
       <Navigation />
-      <Routes user={user} />
+      <Routes
+        user={user}
+        technology={editTechnology}
+        setEditTechnology={setEditTechnology}
+      />
     </ContainerStyle>
   );
 }

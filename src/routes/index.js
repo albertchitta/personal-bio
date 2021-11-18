@@ -3,18 +3,32 @@ import PropTypes from 'prop-types';
 import AdminRoutes from './AdminRoutes';
 import PublicRoutes from './PublicRoutes';
 
-export default function Routes({ user }) {
+export default function Routes({ user, technology, setEditTechnology }) {
   return (
     <div>
-      {user ? <AdminRoutes user={user} /> : <PublicRoutes user={user} />}
+      {user ? (
+        <AdminRoutes
+          user={user}
+          technology={technology}
+          setEditTechnology={setEditTechnology}
+        />
+      ) : (
+        <PublicRoutes user={user} />
+      )}
     </div>
   );
 }
 
 Routes.propTypes = {
-  user: PropTypes.shape(PropTypes.obj),
+  technology: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    firebaseKey: PropTypes.string,
+  }),
+  setEditTechnology: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    uid: PropTypes.string,
+  }).isRequired,
 };
 
-Routes.defaultProps = {
-  user: null,
-};
+Routes.defaultProps = { technology: {} };

@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { getTechnologies } from '../api/data/technologyData';
+import Technology from '../components/Technology';
 
 const TechnologiesStyle = styled.div`
   position: absolute;
@@ -38,30 +41,25 @@ const TechnologiesStyle = styled.div`
     margin: 50px auto;
     justify-content: center;
 
-    .card {
-      width: 250px;
-      height: 250px;
-      border-radius: 6px;
-      background-color: #191c26;
-      // border: none;
-      border-color: white;
-      justify-content: center;
-
-      img {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-      }
-
-      .card-title {
-        color: white;
-        text-align: center;
-      }
+    h3 {
+      color: white;
     }
   }
 `;
 
-export default function Technologies() {
+export default function Technologies({ setEditTechnology }) {
+  const [technologies, setTechnologies] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      getTechnologies().then(setTechnologies);
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <TechnologiesStyle>
       <div className="title">
@@ -71,6 +69,20 @@ export default function Technologies() {
         </Link>
       </div>
       <div className="card-container">
+        {technologies.length ? (
+          technologies.map((technology) => (
+            <Technology
+              key={technology.firebaseKey}
+              technology={technology}
+              setTechnologies={setTechnologies}
+              setEditTechnology={setEditTechnology}
+            />
+          ))
+        ) : (
+          <h3>No Technologies Added</h3>
+        )}
+      </div>
+      {/* <div className="card-container">
         <div className="card">
           <img
             className="card-img-top"
@@ -181,7 +193,16 @@ export default function Technologies() {
             <h5 className="card-title">Postman</h5>
           </div>
         </div>
-      </div>
+      </div> */}
     </TechnologiesStyle>
   );
 }
+
+Technologies.propTypes = {
+  setEditTechnology: PropTypes.func,
+  user: PropTypes.shape({
+    uid: PropTypes.string,
+  }).isRequired,
+};
+
+Technologies.defaultProps = { setEditTechnology: () => {} };
