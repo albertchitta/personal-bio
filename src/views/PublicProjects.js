@@ -13,10 +13,10 @@ const ProjectsStyle = styled.div`
   }
 `;
 
-export default function Projects() {
+export default function PublicProjects() {
   return (
     <ProjectsStyle>
-      <h1>Projects</h1>
+      <h1>Public Projects</h1>
     </ProjectsStyle>
   );
 }

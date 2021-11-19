@@ -4,8 +4,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
-import { deleteTechnology, updateTechnology } from '../api/data/technologyData';
+// import { useHistory } from 'react-router-dom';
+import { deleteProject, updateProject } from '../api/data/projectData';
 
 const TechnologyStyle = styled.div`
   .card {
@@ -34,57 +34,46 @@ const TechnologyStyle = styled.div`
     }
 `;
 
-export default function Technology({
-  technology,
-  setTechnologies,
-  setEditTechnology,
+export default function Project({
+  project,
+  setProjects,
+  // setEditProject,
 }) {
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleClick = (method) => {
-    const del = confirm(`Are you sure you want to delete ${technology.name}?`);
+    const del = confirm(`Are you sure you want to delete ${project.name}?`);
     if (del && method === 'delete') {
-      deleteTechnology(technology).then(setTechnologies);
+      deleteProject(project).then(setProjects);
     } else {
-      updateTechnology(technology).then(setTechnologies);
+      updateProject(project).then(setProjects);
     }
   };
 
   return (
     <TechnologyStyle>
       <div className="card">
-        <img
-          className="card-img-top"
-          src={technology.image}
-          alt={technology.name}
-        />
+        <img className="card-img-top" src={project.image} alt={project.name} />
         <div className="card-body">
-          <h5 className="card-title">{technology.name}</h5>
+          <h5 className="card-title">{project.name}</h5>
         </div>
         <i className="fas fa-trash-alt" onClick={() => handleClick('delete')} />
-        <i
-          className="fas fa-edit"
-          onClick={() => {
-            setEditTechnology(technology);
-            history.push('/add-technology');
-          }}
-        />
       </div>
     </TechnologyStyle>
   );
 }
 
-Technology.propTypes = {
-  technology: PropTypes.shape({
+Project.propTypes = {
+  project: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
-  setTechnologies: PropTypes.func.isRequired,
-  setEditTechnology: PropTypes.func,
+  setProjects: PropTypes.func.isRequired,
+  // setEditProject: PropTypes.func,
   user: PropTypes.shape({
     uid: PropTypes.string,
   }).isRequired,
 };
 
-Technology.defaultProps = { setEditTechnology: () => {} };
+// Project.defaultProps = { setEditProject: () => {} };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {
   ProSidebar,
   Menu,
@@ -19,10 +19,6 @@ import 'react-pro-sidebar/dist/css/styles.css';
 // import { signInUser } from '../api/auth';
 
 // TODO: Fix active menu
-
-// const handleOnClick = () => {
-//   signInUser();
-// };
 
 export default function Navigation() {
   const storedValueAsNumber = Number(localStorage.getItem('activeMenu'));
@@ -108,7 +104,7 @@ export default function Navigation() {
       </SidebarContent>
       <SidebarFooter>
         <h6>
-          <a href="...">Admin Login</a>
+          <Link to="/signin">Admin Login</Link>
         </h6>
       </SidebarFooter>
     </ProSidebar>

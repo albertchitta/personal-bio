@@ -47,7 +47,7 @@ const TechnologiesStyle = styled.div`
   }
 `;
 
-export default function Technologies({ setEditTechnology }) {
+export default function AdminTechnologies({ setEditTechnology }) {
   const [technologies, setTechnologies] = useState([]);
 
   useEffect(() => {
@@ -198,11 +198,11 @@ export default function Technologies({ setEditTechnology }) {
   );
 }
 
-Technologies.propTypes = {
+AdminTechnologies.propTypes = {
   setEditTechnology: PropTypes.func,
   user: PropTypes.shape({
     uid: PropTypes.string,
   }).isRequired,
 };
 
-Technologies.defaultProps = { setEditTechnology: () => {} };
+AdminTechnologies.defaultProps = { setEditTechnology: () => {} };
