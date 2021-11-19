@@ -1,51 +1,88 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { getTechnologies } from '../api/data/technologyData';
+import Technology from '../components/Technology';
 
 const TechnologiesStyle = styled.div`
-  display: flex;
+  position: absolute;
 
-  h1 {
-    color: white;
-    font-size: 45px;
-    font-weight: 800;
-    margin-top: 116px;
-    margin-left: 18px;
+  .title {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      color: white;
+      font-size: 45px;
+      font-weight: 800;
+      margin-top: 116px;
+      margin-left: 18px;
+    }
+
+    a {
+      height: 10px;
+      margin-top: 135px;
+      margin-right: 50px;
+      margin-left: 100px;
+
+      i {
+        color: green;
+        font-size: 25px;
+        font-weight: 800;
+      }
+    }
   }
 
   .card-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
     width: 100%;
-    margin-top: 200px;
+    margin: 50px auto;
+    justify-content: center;
 
-    .card {
-      width: 200px;
-      height: 200px;
-      border-radius: 6px;
-      margin: 18px;
-      background-color: #191c26;
-
-      .card-title,
-      .card-text,
-      i {
-        color: white;
-      }
-
-      img {
-        width: 100px;
-        height: 100px;
-        // object-fit: cover;
-      }
+    h3 {
+      color: white;
     }
   }
 `;
 
-export default function Technologies() {
+export default function AdminTechnologies({ setEditTechnology }) {
+  const [technologies, setTechnologies] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      getTechnologies().then(setTechnologies);
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <TechnologiesStyle>
-      <h1>Technologies</h1>
+      <div className="title">
+        <h1>Technologies</h1>
+        <Link to="/add-technology">
+          <i className="fas fa-plus" />
+        </Link>
+      </div>
       <div className="card-container">
+        {technologies.length ? (
+          technologies.map((technology) => (
+            <Technology
+              key={technology.firebaseKey}
+              technology={technology}
+              setTechnologies={setTechnologies}
+              setEditTechnology={setEditTechnology}
+            />
+          ))
+        ) : (
+          <h3>No Technologies Added</h3>
+        )}
+      </div>
+      {/* <div className="card-container">
         <div className="card">
           <img
             className="card-img-top"
@@ -156,7 +193,16 @@ export default function Technologies() {
             <h5 className="card-title">Postman</h5>
           </div>
         </div>
-      </div>
+      </div> */}
     </TechnologiesStyle>
   );
 }
+
+AdminTechnologies.propTypes = {
+  setEditTechnology: PropTypes.func,
+  user: PropTypes.shape({
+    uid: PropTypes.string,
+  }).isRequired,
+};
+
+AdminTechnologies.defaultProps = { setEditTechnology: () => {} };

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ProjectsStyle = styled.div`
+  position: absolute;
+
   h1 {
     color: white;
     font-size: 45px;
@@ -11,10 +13,10 @@ const ProjectsStyle = styled.div`
   }
 `;
 
-export default function Projects() {
+export default function PublicProjects() {
   return (
     <ProjectsStyle>
-      <h1>Projects</h1>
+      <h1>Public Projects</h1>
     </ProjectsStyle>
   );
 }

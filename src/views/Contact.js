@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContactStyle = styled.div`
+  position: absolute;
+
   h1 {
     color: white;
     font-size: 45px;
@@ -12,8 +14,10 @@ const ContactStyle = styled.div`
 
   .card-container {
     display: flex;
-    align-items: flex-start;
+    flex-wrap: wrap;
     width: 100%;
+    margin: 50px auto;
+    justify-content: center;
 
     .card {
       width: 400px;
@@ -21,6 +25,7 @@ const ContactStyle = styled.div`
       border-radius: 6px;
       margin: 18px;
       background-color: #111319;
+      border-color: white;
 
       .card-title,
       .card-text,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {
   ProSidebar,
   Menu,
@@ -16,6 +16,7 @@ import {
   FaEnvelope,
 } from 'react-icons/fa';
 import 'react-pro-sidebar/dist/css/styles.css';
+// import { signInUser } from '../api/auth';
 
 // TODO: Fix active menu
 
@@ -102,7 +103,9 @@ export default function Navigation() {
         </Menu>
       </SidebarContent>
       <SidebarFooter>
-        <h4>Email</h4>
+        <h6>
+          <Link to="/signin">Admin Login</Link>
+        </h6>
       </SidebarFooter>
     </ProSidebar>
   );
