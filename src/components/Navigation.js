@@ -16,12 +16,9 @@ import {
   FaEnvelope,
 } from 'react-icons/fa';
 import 'react-pro-sidebar/dist/css/styles.css';
-// import { signInUser } from '../api/auth';
-
-// TODO: Fix active menu
 
 export default function Navigation() {
-  const storedValueAsNumber = Number(localStorage.getItem('activeMenu'));
+  const storedValueAsNumber = Number(sessionStorage.getItem('activeMenu') || 1);
   const [activeMenu, setActiveMenu] = useState(
     Number.isInteger(storedValueAsNumber) ? storedValueAsNumber : 0,
   );
@@ -29,7 +26,7 @@ export default function Navigation() {
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
-      localStorage.setItem('activeMenu', String(activeMenu));
+      sessionStorage.setItem('activeMenu', String(activeMenu));
     }
     return () => {
       isMounted = false;
@@ -104,7 +101,7 @@ export default function Navigation() {
       </SidebarContent>
       <SidebarFooter>
         <h6>
-          <Link to="/signin">Admin Login</Link>
+          <Link to="/signin">Admin Sign In</Link>
         </h6>
       </SidebarFooter>
     </ProSidebar>

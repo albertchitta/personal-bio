@@ -8,7 +8,7 @@ import AdminTechnologies from '../views/AdminTechnologies';
 import Contact from '../views/Contact';
 import AddTechnology from '../views/AddTechnology';
 
-export default function Routes({ user, setEditTechnology }) {
+export default function Routes({ technology, setEditTechnology }) {
   return (
     <div>
       <Switch>
@@ -18,16 +18,19 @@ export default function Routes({ user, setEditTechnology }) {
         <Route
           exact
           path="/technologies"
-          component={() => <AdminTechnologies />}
-          user={user}
-          setEditTechnology={setEditTechnology}
+          component={() => (
+            <AdminTechnologies setEditTechnology={setEditTechnology} />
+          )}
         />
         <Route exact path="/contact" component={() => <Contact />} />
         <Route
           exact
           path="/add-technology"
           component={() => (
-            <AddTechnology setEditTechnology={setEditTechnology} />
+            <AddTechnology
+              technology={technology}
+              setEditTechnology={setEditTechnology}
+            />
           )}
         />
       </Switch>
@@ -36,8 +39,12 @@ export default function Routes({ user, setEditTechnology }) {
 }
 
 Routes.propTypes = {
+  technology: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    firebaseKey: PropTypes.string,
+  }),
   setEditTechnology: PropTypes.func.isRequired,
-  user: PropTypes.shape({
-    uid: PropTypes.string,
-  }).isRequired,
 };
+
+Routes.defaultProps = { technology: {} };

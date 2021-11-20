@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from '../views/Home';
 import About from '../views/About';
 import PublicProjects from '../views/PublicProjects';
-import PublicTechnologies from '../views/AdminTechnologies';
+import PublicTechnologies from '../views/PublicTechnologies';
 import Contact from '../views/Contact';
 import SignIn from '../views/SignIn';
 

@@ -16,6 +16,13 @@ const getTechnologies = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getTechnology = (firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/technologies/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch(reject);
+});
+
 const createTechnology = (technology) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/technologies.json`, technology)
@@ -46,6 +53,7 @@ const deleteTechnology = (technology) => new Promise((resolve, reject) => {
 
 export {
   getTechnologies,
+  getTechnology,
   createTechnology,
   updateTechnology,
   deleteTechnology,
