@@ -80,11 +80,6 @@ Technology.propTypes = {
     name: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
+  setEditTechnology: PropTypes.func.isRequired,
   setTechnologies: PropTypes.func.isRequired,
-  setEditTechnology: PropTypes.func,
-  user: PropTypes.shape({
-    uid: PropTypes.string,
-  }).isRequired,
 };
-
-Technology.defaultProps = { setEditTechnology: () => {} };

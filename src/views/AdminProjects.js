@@ -72,9 +72,9 @@ export default function AdminProjects() {
           projects.map((project) => (
             <Project
               key={project.firebaseKey}
-              technology={project}
-              setTechnologies={setProjects}
-              // setEditTechnology={setEditProject}
+              project={project}
+              setProjects={setProjects}
+              // setEditProject={setEditProject}
             />
           ))
         ) : (

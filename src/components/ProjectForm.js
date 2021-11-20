@@ -29,7 +29,7 @@ const initialState = {
   name: '',
 };
 
-export default function TechnologyForm({ technology, setEditTechnology }) {
+export default function ProjectForm({ project, user, setEditProject }) {
   const [formInput, setFormInput] = useState(initialState);
   const [technologies, setTechnologies] = useState([]);
   const history = useHistory();
@@ -37,22 +37,23 @@ export default function TechnologyForm({ technology, setEditTechnology }) {
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
-      if (technology.firebaseKey) {
+      if (project.firebaseKey) {
         setFormInput({
-          image: technology.image,
-          name: technology.name,
-          firebaseKey: technology.firebaseKey,
+          image: project.image,
+          name: project.name,
+          firebaseKey: project.firebaseKey,
+          uid: user.uid,
         });
       }
     }
     return () => {
       isMounted = false;
     };
-  }, [technology]);
+  }, [project]);
 
   const resetForm = () => {
     setFormInput(initialState);
-    setEditTechnology({});
+    setEditProject({});
   };
 
   const handleChange = (e) => {
@@ -64,13 +65,14 @@ export default function TechnologyForm({ technology, setEditTechnology }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (technology.firebaseKey) {
+    if (project.firebaseKey) {
       updateTechnology(formInput).then(() => {
         setTechnologies(technologies);
         resetForm();
         history.push('/technologies');
       });
     } else {
+      // { ...formInput, uid: user.uid }
       createTechnology(formInput).then(() => {
         setTechnologies(technologies);
         resetForm();
@@ -107,20 +109,23 @@ export default function TechnologyForm({ technology, setEditTechnology }) {
           />
         </FormGroup>
         <Button type="submit" className="btn btn-success">
-          {technology.firebaseKey ? 'Update' : 'Submit'}
+          {project.firebaseKey ? 'Update' : 'Submit'}
         </Button>
       </Form>
     </FormStyle>
   );
 }
 
-TechnologyForm.propTypes = {
-  technology: PropTypes.shape({
+ProjectForm.propTypes = {
+  project: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
-  setEditTechnology: PropTypes.func.isRequired,
+  setEditProject: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    uid: PropTypes.string,
+  }).isRequired,
 };
 
-TechnologyForm.defaultProps = { technology: {} };
+ProjectForm.defaultProps = { project: {} };

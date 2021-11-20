@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { getTechnologies } from '../api/data/technologyData';
-import Technology from '../components/Technology';
+import Technology from '../components/PublicTechnology';
 
 const TechnologiesStyle = styled.div`
   position: absolute;
@@ -33,7 +32,7 @@ const TechnologiesStyle = styled.div`
   }
 `;
 
-export default function PublicTechnologies({ user, setEditTechnology }) {
+export default function PublicTechnologies() {
   const [technologies, setTechnologies] = useState([]);
 
   useEffect(() => {
@@ -58,8 +57,6 @@ export default function PublicTechnologies({ user, setEditTechnology }) {
               key={technology.firebaseKey}
               technology={technology}
               setTechnologies={setTechnologies}
-              setEditTechnology={setEditTechnology}
-              user={user}
             />
           ))
         ) : (
@@ -69,12 +66,3 @@ export default function PublicTechnologies({ user, setEditTechnology }) {
     </TechnologiesStyle>
   );
 }
-
-PublicTechnologies.propTypes = {
-  setEditTechnology: PropTypes.func,
-  user: PropTypes.shape({
-    uid: PropTypes.string,
-  }).isRequired,
-};
-
-PublicTechnologies.defaultProps = { setEditTechnology: () => {} };

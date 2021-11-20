@@ -101,7 +101,7 @@ export default function Navigation() {
       </SidebarContent>
       <SidebarFooter>
         <h6>
-          <Link to="/signin">Admin Login</Link>
+          <Link to="/signin">Admin Sign In</Link>
         </h6>
       </SidebarFooter>
     </ProSidebar>

@@ -1,20 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import TechnologyForm from '../components/TechnologyForm';
 
-export default function AddTechnology({ technology, user, setEditTechnology }) {
-  console.warn(technology);
+const AddTechnologyStyle = styled.div`
+  h1 {
+    color: white;
+    font-size: 45px;
+    font-weight: 800;
+    margin-top: 116px;
+    margin-left: 18px;
+  }
+`;
+export default function AddTechnology({ technology, setEditTechnology }) {
   return (
-    <div>
-      <>
-        <h1>Add a Technology</h1>
-        <TechnologyForm
-          technology={technology}
-          user={user}
-          setEditTechnology={setEditTechnology}
-        />
-      </>
-    </div>
+    <AddTechnologyStyle>
+      <h1>Add/Edit a Technology</h1>
+      <TechnologyForm
+        technology={technology}
+        setEditTechnology={setEditTechnology}
+      />
+    </AddTechnologyStyle>
   );
 }
 
@@ -25,9 +31,6 @@ AddTechnology.propTypes = {
     firebaseKey: PropTypes.string,
   }),
   setEditTechnology: PropTypes.func.isRequired,
-  user: PropTypes.shape({
-    uid: PropTypes.string,
-  }).isRequired,
 };
 
 AddTechnology.defaultProps = { technology: {} };

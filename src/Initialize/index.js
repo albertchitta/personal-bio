@@ -24,7 +24,6 @@ function Initialize() {
           isAdmin: process.env.REACT_APP_ADMIN_UID === authed.uid,
         };
         setUser(userInfoObj);
-        console.warn(userInfoObj);
       } else if (user || user === null) {
         setUser(false);
       }
@@ -33,22 +32,17 @@ function Initialize() {
 
   return (
     <ContainerStyle>
-      <Navigation />
+      <Navigation user={user} />
       {user?.isAdmin ? (
         <>
           <AdminRoutes
-            user={user}
             technology={editTechnology}
             setEditTechnology={setEditTechnology}
           />
         </>
       ) : (
         <>
-          <PublicRoutes
-            user={user}
-            technology={editTechnology}
-            setEditTechnology={setEditTechnology}
-          />
+          <PublicRoutes user={user} />
         </>
       )}
     </ContainerStyle>

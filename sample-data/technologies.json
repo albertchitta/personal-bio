@@ -1,0 +1,57 @@
+{
+  "-Mokh9Px0yIDU6ZRuGA2" : {
+    "firebaseKey" : "-Mokh9Px0yIDU6ZRuGA2",
+    "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png",
+    "name" : "JavaScript"
+  },
+  "-MokvJE-gd2HfUV6ypXT" : {
+    "firebaseKey" : "-MokvJE-gd2HfUV6ypXT",
+    "image" : "https://image.flaticon.com/icons/png/512/919/919851.png",
+    "name" : "React"
+  },
+  "-MoySUFiFTmRcGcEa3-T" : {
+    "firebaseKey" : "-MoySUFiFTmRcGcEa3-T",
+    "image" : "https://icons.iconarchive.com/icons/cornmanthe3rd/plex/256/Other-html-5-icon.png",
+    "name" : "HTML5"
+  },
+  "-MoySY5gAPZM1g05WBNc" : {
+    "firebaseKey" : "-MoySY5gAPZM1g05WBNc",
+    "image" : "https://image.flaticon.com/icons/png/512/732/732190.png",
+    "name" : "CSS3"
+  },
+  "-MoySaG41vl0tT4K-XlB" : {
+    "firebaseKey" : "-MoySaG41vl0tT4K-XlB",
+    "image" : "https://image.flaticon.com/icons/png/512/919/919831.png",
+    "name" : "SASS"
+  },
+  "-MoySeqwnPdMJPU1zfVf" : {
+    "firebaseKey" : "-MoySeqwnPdMJPU1zfVf",
+    "image" : "https://code.visualstudio.com/assets/updates/1_35/logo-stable.png",
+    "name" : "Visual Studio Code"
+  },
+  "-MoySi0wgeed_ib0xPwz" : {
+    "firebaseKey" : "-MoySi0wgeed_ib0xPwz",
+    "image" : "https://cdn.worldvectorlogo.com/logos/bootstrap-4.svg",
+    "name" : "Bootstrap"
+  },
+  "-MoySkSJyqnwQVgIQ6F9" : {
+    "firebaseKey" : "-MoySkSJyqnwQVgIQ6F9",
+    "image" : "https://cdn.worldvectorlogo.com/logos/firebase-1.svg",
+    "name" : "Firebase"
+  },
+  "-MoySn1FYXFbWvZJ7bqe" : {
+    "firebaseKey" : "-MoySn1FYXFbWvZJ7bqe",
+    "image" : "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+    "name" : "GitHub"
+  },
+  "-MoySp5BRDUgf3j4OQc3" : {
+    "firebaseKey" : "-MoySp5BRDUgf3j4OQc3",
+    "image" : "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+    "name" : "Figma"
+  },
+  "-MoySr8NMMTX_ni7UA_k" : {
+    "firebaseKey" : "-MoySr8NMMTX_ni7UA_k",
+    "image" : "https://api.badgr.io/public/assertions/RCaLPLRLRWqPxY4NUzQ46g/image",
+    "name" : "Postman"
+  }
+}
