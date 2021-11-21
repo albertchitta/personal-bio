@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const ContactStyle = styled.div`
   position: absolute;
+  width: 80%;
 
   h1 {
     color: white;
@@ -14,23 +15,45 @@ const ContactStyle = styled.div`
 
   .card-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     margin: 50px auto;
     justify-content: center;
 
     .card {
-      width: 400px;
+      width: 450px;
       height: 150px;
       border-radius: 6px;
       margin: 18px;
       background-color: #111319;
       border-color: white;
 
-      .card-title,
-      .card-text,
-      i {
+      .card-body {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .card-title {
+        font-size: 25px;
         color: white;
+      }
+
+      i {
+        font-size: 24px;
+        color: white;
+        background-color: #34495e;
+        border-radius: 50%;
+        padding: 16px;
+      }
+
+      .card-text {
+        font-size: 24px;
+        color: #a3a9bd;
+      }
+
+      .email {
+        text-decoration: none;
       }
     }
   }
@@ -43,23 +66,41 @@ export default function Contact() {
       <div className="card-container">
         <div className="card">
           <div className="card-body">
-            <i className="fas fa-phone-alt" />
-            <h5 className="card-title">Phone</h5>
-            <p className="card-text">+615 653 1650</p>
+            <span className="fa-stack fa-2x">
+              <i className="fas fa-phone-alt" />
+            </span>
+            <div>
+              <h5 className="card-title">Phone</h5>
+              <p className="card-text">+615 653 1650</p>
+            </div>
           </div>
         </div>
         <div className="card">
           <div className="card-body">
-            <i className="fas fa-envelope" />
-            <h5 className="card-title">Email</h5>
-            <p className="card-text">albert.w.chittaphong@gmail.com</p>
+            <span className="fa-stack fa-2x">
+              <i className="fas fa-envelope" />
+            </span>
+            <div>
+              <h5 className="card-title">Email</h5>
+              <a
+                className="email"
+                href="mailto:albert.w.chittaphong@gmail.com"
+                target="_top"
+              >
+                <p className="card-text">albert.w.chittaphong@gmail.com</p>
+              </a>
+            </div>
           </div>
         </div>
         <div className="card">
           <div className="card-body">
-            <i className="fas fa-map-marker-alt" />
-            <h5 className="card-title">Address</h5>
-            <p className="card-text">Huntsville, Alabama</p>
+            <span className="fa-stack fa-2x">
+              <i className="fas fa-map-marker-alt" />
+            </span>
+            <div>
+              <h5 className="card-title">Address</h5>
+              <p className="card-text">Huntsville, AL</p>
+            </div>
           </div>
         </div>
       </div>
