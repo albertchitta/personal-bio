@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { getProjects } from '../api/data/projectData';
-import Project from '../components/Project';
+import AdminProject from '../components/AdminProject';
 
 const ProjectsStyle = styled.div`
   position: absolute;
@@ -70,11 +72,10 @@ export default function AdminProjects() {
       <div className="card-container">
         {projects.length ? (
           projects.map((project) => (
-            <Project
+            <AdminProject
               key={project.firebaseKey}
               project={project}
               setProjects={setProjects}
-              // setEditProject={setEditProject}
             />
           ))
         ) : (

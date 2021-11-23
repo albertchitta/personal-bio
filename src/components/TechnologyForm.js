@@ -29,9 +29,8 @@ const initialState = {
   name: '',
 };
 
-export default function TechnologyForm({ technology, setEditTechnology }) {
+export default function TechnologyForm({ technology = {} }) {
   const [formInput, setFormInput] = useState(initialState);
-  const [technologies, setTechnologies] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -52,7 +51,6 @@ export default function TechnologyForm({ technology, setEditTechnology }) {
 
   const resetForm = () => {
     setFormInput(initialState);
-    setEditTechnology({});
   };
 
   const handleChange = (e) => {
@@ -66,13 +64,11 @@ export default function TechnologyForm({ technology, setEditTechnology }) {
     e.preventDefault();
     if (technology.firebaseKey) {
       updateTechnology(formInput).then(() => {
-        setTechnologies(technologies);
         resetForm();
         history.push('/technologies');
       });
     } else {
       createTechnology(formInput).then(() => {
-        setTechnologies(technologies);
         resetForm();
         history.push('/technologies');
       });
@@ -89,7 +85,7 @@ export default function TechnologyForm({ technology, setEditTechnology }) {
             name="name"
             id="name"
             placeholder="Add a name"
-            value={formInput.name}
+            value={formInput.name || ''}
             onChange={handleChange}
             required
           />
@@ -101,7 +97,7 @@ export default function TechnologyForm({ technology, setEditTechnology }) {
             name="image"
             id="image"
             placeholder="Add an image"
-            value={formInput.image}
+            value={formInput.image || ''}
             onChange={handleChange}
             required
           />
@@ -115,12 +111,5 @@ export default function TechnologyForm({ technology, setEditTechnology }) {
 }
 
 TechnologyForm.propTypes = {
-  technology: PropTypes.shape({
-    image: PropTypes.string,
-    name: PropTypes.string,
-    firebaseKey: PropTypes.string,
-  }),
-  setEditTechnology: PropTypes.func.isRequired,
+  technology: PropTypes.shape({}).isRequired,
 };
-
-TechnologyForm.defaultProps = { technology: {} };

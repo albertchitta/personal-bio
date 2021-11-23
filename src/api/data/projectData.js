@@ -16,6 +16,13 @@ const getProjects = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getProject = (firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/projects/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch(reject);
+});
+
 const createProject = (project) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/projects.json`, project)
@@ -32,7 +39,7 @@ const createProject = (project) => new Promise((resolve, reject) => {
 
 const updateProject = (project) => new Promise((resolve, reject) => {
   axios
-    .patch(`${dbUrl}/technologies/${project.firebaseKey}.json`, project)
+    .patch(`${dbUrl}/projects/${project.firebaseKey}.json`, project)
     .then(() => getProjects().then(resolve))
     .catch(reject);
 });
@@ -45,5 +52,5 @@ const deleteProject = (project) => new Promise((resolve, reject) => {
 });
 
 export {
-  getProjects, createProject, updateProject, deleteProject,
+  getProjects, getProject, createProject, updateProject, deleteProject,
 };

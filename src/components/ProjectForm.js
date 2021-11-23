@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { createTechnology, updateTechnology } from '../api/data/technologyData';
+import { createProject, updateProject } from '../api/data/projectData';
 
 const FormStyle = styled.div`
   border-style: solid;
@@ -29,9 +29,8 @@ const initialState = {
   name: '',
 };
 
-export default function ProjectForm({ project, user, setEditProject }) {
+export default function ProjectForm({ project = {} }) {
   const [formInput, setFormInput] = useState(initialState);
-  const [technologies, setTechnologies] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -42,7 +41,6 @@ export default function ProjectForm({ project, user, setEditProject }) {
           image: project.image,
           name: project.name,
           firebaseKey: project.firebaseKey,
-          uid: user.uid,
         });
       }
     }
@@ -53,7 +51,6 @@ export default function ProjectForm({ project, user, setEditProject }) {
 
   const resetForm = () => {
     setFormInput(initialState);
-    setEditProject({});
   };
 
   const handleChange = (e) => {
@@ -66,17 +63,14 @@ export default function ProjectForm({ project, user, setEditProject }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (project.firebaseKey) {
-      updateTechnology(formInput).then(() => {
-        setTechnologies(technologies);
+      updateProject(formInput).then(() => {
         resetForm();
-        history.push('/technologies');
+        history.push('/projects');
       });
     } else {
-      // { ...formInput, uid: user.uid }
-      createTechnology(formInput).then(() => {
-        setTechnologies(technologies);
+      createProject(formInput).then(() => {
         resetForm();
-        history.push('/technologies');
+        history.push('/projects');
       });
     }
   };
@@ -85,25 +79,25 @@ export default function ProjectForm({ project, user, setEditProject }) {
     <FormStyle>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label for="name">Technology Name</Label>
+          <Label for="name">Project Name</Label>
           <Input
             type="text"
             name="name"
             id="name"
             placeholder="Add a name"
-            value={formInput.name}
+            value={formInput.name || ''}
             onChange={handleChange}
             required
           />
         </FormGroup>
         <FormGroup>
-          <Label for="image">Technology Image</Label>
+          <Label for="image">Project Image</Label>
           <Input
             type="text"
             name="image"
             id="image"
             placeholder="Add an image"
-            value={formInput.image}
+            value={formInput.image || ''}
             onChange={handleChange}
             required
           />
@@ -117,15 +111,5 @@ export default function ProjectForm({ project, user, setEditProject }) {
 }
 
 ProjectForm.propTypes = {
-  project: PropTypes.shape({
-    image: PropTypes.string,
-    name: PropTypes.string,
-    firebaseKey: PropTypes.string,
-  }),
-  setEditProject: PropTypes.func.isRequired,
-  user: PropTypes.shape({
-    uid: PropTypes.string,
-  }).isRequired,
+  project: PropTypes.shape({}).isRequired,
 };
-
-ProjectForm.defaultProps = { project: {} };
