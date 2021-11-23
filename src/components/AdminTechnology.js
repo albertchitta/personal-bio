@@ -5,8 +5,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
-import { deleteTechnology, updateTechnology } from '../api/data/technologyData';
+import { Link } from 'react-router-dom';
+import { deleteTechnology } from '../api/data/technologyData';
 
 const TechnologyStyle = styled.div`
   .card {
@@ -35,19 +35,11 @@ const TechnologyStyle = styled.div`
     }
 `;
 
-export default function Technology({
-  technology,
-  setTechnologies,
-  setEditTechnology,
-}) {
-  const history = useHistory();
-
+export default function Technology({ technology, setTechnologies }) {
   const handleClick = (method) => {
     const del = confirm(`Are you sure you want to delete ${technology.name}?`);
     if (del && method === 'delete') {
       deleteTechnology(technology).then(setTechnologies);
-    } else {
-      updateTechnology(technology).then(setTechnologies);
     }
   };
 
@@ -63,13 +55,9 @@ export default function Technology({
           <h5 className="card-title">{technology.name}</h5>
         </div>
         <i className="fas fa-trash-alt" onClick={() => handleClick('delete')} />
-        <i
-          className="fas fa-edit"
-          onClick={() => {
-            setEditTechnology(technology);
-            history.push('/add-technology');
-          }}
-        />
+        <Link to={`/edit-technology/${technology.firebaseKey}`}>
+          <i className="fas fa-edit" />
+        </Link>
       </div>
     </TechnologyStyle>
   );
@@ -81,6 +69,5 @@ Technology.propTypes = {
     name: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
-  setEditTechnology: PropTypes.func.isRequired,
   setTechnologies: PropTypes.func.isRequired,
 };

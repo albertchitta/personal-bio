@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { getTechnologies } from '../api/data/technologyData';
@@ -49,7 +48,7 @@ const TechnologiesStyle = styled.div`
   }
 `;
 
-export default function AdminTechnologies({ setEditTechnology }) {
+export default function AdminTechnologies() {
   const [technologies, setTechnologies] = useState([]);
 
   useEffect(() => {
@@ -76,7 +75,6 @@ export default function AdminTechnologies({ setEditTechnology }) {
             <AdminTechnology
               key={technology.firebaseKey}
               technology={technology}
-              setEditTechnology={setEditTechnology}
               setTechnologies={setTechnologies}
             />
           ))
@@ -87,9 +85,3 @@ export default function AdminTechnologies({ setEditTechnology }) {
     </TechnologiesStyle>
   );
 }
-
-AdminTechnologies.propTypes = {
-  setEditTechnology: PropTypes.func,
-};
-
-AdminTechnologies.defaultProps = { setEditTechnology: () => {} };

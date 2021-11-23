@@ -5,10 +5,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import { useHistory } from 'react-router-dom';
-import { deleteProject, updateProject } from '../api/data/projectData';
+import { Link } from 'react-router-dom';
+import { deleteProject } from '../api/data/projectData';
 
-const TechnologyStyle = styled.div`
+const ProjectStyle = styled.div`
   .card {
     width: 250px;
     height: 250px;
@@ -35,32 +35,27 @@ const TechnologyStyle = styled.div`
     }
 `;
 
-export default function Project({
-  project,
-  setProjects,
-  // setEditProject,
-}) {
-  // const history = useHistory();
-
+export default function Project({ project, setProjects }) {
   const handleClick = (method) => {
     const del = confirm(`Are you sure you want to delete ${project.name}?`);
     if (del && method === 'delete') {
       deleteProject(project).then(setProjects);
-    } else {
-      updateProject(project).then(setProjects);
     }
   };
 
   return (
-    <TechnologyStyle>
+    <ProjectStyle>
       <div className="card">
         <img className="card-img-top" src={project.image} alt={project.name} />
         <div className="card-body">
           <h5 className="card-title">{project.name}</h5>
         </div>
         <i className="fas fa-trash-alt" onClick={() => handleClick('delete')} />
+        <Link to={`/edit-project/${project.firebaseKey}`}>
+          <i className="fas fa-edit" />
+        </Link>
       </div>
-    </TechnologyStyle>
+    </ProjectStyle>
   );
 }
 
@@ -71,10 +66,4 @@ Project.propTypes = {
     firebaseKey: PropTypes.string,
   }).isRequired,
   setProjects: PropTypes.func.isRequired,
-  // setEditProject: PropTypes.func,
-  user: PropTypes.shape({
-    uid: PropTypes.string,
-  }).isRequired,
 };
-
-// Project.defaultProps = { setEditProject: () => {} };

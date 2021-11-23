@@ -12,15 +12,11 @@ export default function Routes({ user }) {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={() => <Home />} />
-        <Route exact path="/about" component={() => <About />} />
-        <Route exact path="/projects" component={() => <PublicProjects />} />
-        <Route
-          exact
-          path="/technologies"
-          component={() => <PublicTechnologies />}
-        />
-        <Route exact path="/contact" component={() => <Contact />} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/projects" component={PublicProjects} />
+        <Route exact path="/technologies" component={PublicTechnologies} />
+        <Route exact path="/contact" component={Contact} />
         <Route exact path="/signin" component={() => <SignIn user={user} />} />
       </Switch>
     </div>
