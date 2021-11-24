@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ProjectStyle = styled.div`
   position: relative;
@@ -39,6 +40,9 @@ export default function Project({ project }) {
             alt={project.name}
           />
           <h5 className="card-title">{project.name}</h5>
+          <Link to={`/projects/${project.firebaseKey}`}>
+            <h2>Learn More</h2>
+          </Link>
         </div>
       </div>
     </ProjectStyle>

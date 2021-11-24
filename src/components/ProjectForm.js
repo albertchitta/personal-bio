@@ -27,6 +27,9 @@ const FormStyle = styled.div`
 const initialState = {
   image: '',
   name: '',
+  githubUrl: '',
+  websiteUrl: '',
+  description: '',
 };
 
 export default function ProjectForm({ project = {} }) {
@@ -40,6 +43,9 @@ export default function ProjectForm({ project = {} }) {
         setFormInput({
           image: project.image,
           name: project.name,
+          githubUrl: project.githubUrl,
+          websiteUrl: project.websiteUrl,
+          description: project.description,
           firebaseKey: project.firebaseKey,
         });
       }
@@ -98,6 +104,42 @@ export default function ProjectForm({ project = {} }) {
             id="image"
             placeholder="Add an image"
             value={formInput.image || ''}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="githubUrl">GitHub URL</Label>
+          <Input
+            type="text"
+            name="githubUrl"
+            id="githubUrl"
+            placeholder="Add a GitHub URL"
+            value={formInput.githubUrl || ''}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="websiteUrl">Website URL</Label>
+          <Input
+            type="text"
+            name="websiteUrl"
+            id="websiteUrl"
+            placeholder="Add a Website URL"
+            value={formInput.websiteUrl || ''}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="description">Project Description</Label>
+          <Input
+            type="textarea"
+            name="description"
+            id="description"
+            placeholder="Add a description"
+            value={formInput.description || ''}
             onChange={handleChange}
             required
           />

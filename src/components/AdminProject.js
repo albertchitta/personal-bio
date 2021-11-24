@@ -9,24 +9,31 @@ import { Link } from 'react-router-dom';
 import { deleteProject } from '../api/data/projectData';
 
 const ProjectStyle = styled.div`
+  position: relative;
+  text-align: center;
+  color: white;
+  
   .card {
-    width: 250px;
-    height: 250px;
-    border-radius: 6px;
-    background-color: #191c26;
     // border: none;
     border-color: white;
     justify-content: center;
+    width: 400px;
+    border-radius: 6px;
+    background-color: #191c26;
+    justify-content: center;
+    border: 1px solid white;
 
     img {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     .card-title {
-      color: white;
-      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     i {
@@ -53,6 +60,9 @@ export default function Project({ project, setProjects }) {
         <i className="fas fa-trash-alt" onClick={() => handleClick('delete')} />
         <Link to={`/edit-project/${project.firebaseKey}`}>
           <i className="fas fa-edit" />
+        </Link>
+        <Link to={`/projects/${project.firebaseKey}`}>
+          <h2>Learn More</h2>
         </Link>
       </div>
     </ProjectStyle>

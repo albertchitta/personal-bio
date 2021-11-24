@@ -41,7 +41,23 @@ export default function Details() {
           <div className="col">
             <div className="card-block px-2">
               <h1 className="card-title">{project.name}</h1>
-              {/* <p className="card-text">{item.itemDescription}</p> */}
+              <p className="card-text">{project.description}</p>
+              <a
+                aria-label="github"
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="fab fa-github" />
+              </a>
+              <a
+                aria-label="website"
+                href={project.websiteUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="fas fa-external-link-alt" />
+              </a>
             </div>
           </div>
         </div>
