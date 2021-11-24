@@ -9,6 +9,7 @@ import AddTechnology from '../views/AddTechnology';
 import EditTechnology from '../views/EditTechnology';
 import AddProject from '../views/AddProject';
 import EditProject from '../views/EditProject';
+import Details from '../views/ProjectDetails';
 
 export default function Routes() {
   return (
@@ -18,6 +19,7 @@ export default function Routes() {
         <Route exact path="/about" component={About} />
         <Route exact path="/projects" component={AdminProjects} />
         <Route exact path="/add-project" component={AddProject} />
+        <Route exact path="/projects/:firebaseKey" component={Details} />
         <Route
           exact
           path="/edit-project/:firebaseKey"

@@ -7,6 +7,7 @@ import PublicProjects from '../views/PublicProjects';
 import PublicTechnologies from '../views/PublicTechnologies';
 import Contact from '../views/Contact';
 import SignIn from '../views/SignIn';
+import Details from '../views/ProjectDetails';
 
 export default function Routes({ user }) {
   return (
@@ -15,6 +16,7 @@ export default function Routes({ user }) {
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/projects" component={PublicProjects} />
+        <Route exact path="/projects/:firebaseKey" component={Details} />
         <Route exact path="/technologies" component={PublicTechnologies} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/signin" component={() => <SignIn user={user} />} />

@@ -8,7 +8,7 @@ const AddProjectStyle = styled.div`
     font-size: 45px;
     font-weight: 800;
     margin-top: 116px;
-    margin-left: 18px;
+    margin-left: 36px;
   }
 `;
 
