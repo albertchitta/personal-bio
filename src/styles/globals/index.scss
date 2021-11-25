@@ -2,7 +2,7 @@
 
 body {
   background-color: $favColor !important;
-  display: flex;
+  // display: flex; removed for new navbar
 
   .pro-sidebar {
     background-color: $sidebar-bg-color;
@@ -68,5 +68,9 @@ body {
         color: #527ca6;
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
   }
 }
