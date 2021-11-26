@@ -9,18 +9,30 @@ import { createProject, updateProject } from '../api/data/projectData';
 
 const FormStyle = styled.div`
   border-style: solid;
-  border-color: gray;
+  border-color: #283618;
   border-width: 1px;
   padding: 16px;
   width: 644px;
   margin: 42px auto;
+  border-radius: 10px;
 
   Label {
-    color: white;
+    color: #606c38;
+  }
+
+  Input {
+    margin-bottom: 24px;
   }
 
   Button {
     margin-top: 24px;
+    color: white;
+    background-color: #dda15e;
+    border-color: #283618;
+  }
+
+  Button:hover {
+    background-color: #bc6c25;
   }
 `;
 

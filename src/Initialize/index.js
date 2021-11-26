@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import firebase from 'firebase/app';
-// import Navigation from '../components/Navigation';
 import AdminRoutes from '../routes/AdminRoutes';
 import PublicRoutes from '../routes/PublicRoutes';
 import 'firebase/auth';
 import Navbar from '../components/Nav/Navbar';
-import Footer from '../components/Footer';
 
-const ContainerStyle = styled.div`
+const StyledContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 function Initialize() {
@@ -32,7 +32,7 @@ function Initialize() {
   }, []);
 
   return (
-    <ContainerStyle>
+    <StyledContainer>
       <Navbar user={user} />
       {user?.isAdmin ? (
         <>
@@ -43,8 +43,7 @@ function Initialize() {
           <PublicRoutes user={user} />
         </>
       )}
-      <Footer />
-    </ContainerStyle>
+    </StyledContainer>
   );
 }
 

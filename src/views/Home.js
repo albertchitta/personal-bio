@@ -1,34 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const HomeStyle = styled.div`
-  position: absolute;
+const StyledHome = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 200px auto;
+  margin: 100px auto;
   width: 80%;
   align-items: center;
   text-align: center;
   justify-content: center;
 
   img {
-    width: 20%;
+    width: 50%;
     border-radius: 50%;
   }
 
   h1 {
-    color: white;
+    color: #606c38;
     font-size: 45px;
     font-weight: 800;
   }
 
   p {
-    color: #a3a9bd;
+    color: #283618;
     font-size: 24px;
   }
 
   i {
-    color: #a3a9bd;
+    color: #bc6c25;
     font-size: 24px;
     margin-top: 18px;
     padding: 0 18px;
@@ -46,14 +45,14 @@ const HomeStyle = styled.div`
   }
 
   .line {
-    border: 1px solid #a3a9bd;
+    border: 1px solid #dda15e;
     width: 100px;
     height: 100px;
   }
 
   .resume {
-    color: white;
-    border: 2px solid #a9afc3;
+    color: #606c38;
+    border: 2px solid #283618;
     margin-top: 48px;
     background-color: transparent;
     border-radius: 30px;
@@ -65,14 +64,14 @@ const HomeStyle = styled.div`
   }
 
   .resume:hover {
-    background-color: white;
-    color: #191c26;
+    background-color: #dda15e;
+    color: #fefae0;
   }
 `;
 
 export default function Home() {
   return (
-    <HomeStyle>
+    <StyledHome>
       <img
         src="https://media-exp1.licdn.com/dms/image/C4D03AQF7dkuVxrM4xg/profile-displayphoto-shrink_200_200/0/1631904778566?e=1642636800&v=beta&t=5TBLaeYit7rWdYeb64ysCiei5ONiIvqhRNw3bm0B8tU"
         alt="Avatar"
@@ -130,6 +129,6 @@ export default function Home() {
       <a href="Albert_Chittaphong_Resume.pdf" download className="resume">
         Download Resume
       </a>
-    </HomeStyle>
+    </StyledHome>
   );
 }

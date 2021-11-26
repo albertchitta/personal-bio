@@ -1,20 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FooterStyle = styled.div`
-  position: fixed;
+const StyledFooter = styled.div`
   left: 0;
   bottom: 0;
+  right: 0;
   width: 100%;
-  color: white;
+  color: #283618;
   text-align: center;
+  background-color: red;
+  height: 25px;
+
+  i {
+    margin-right: 5px;
+  }
 `;
 
 export default function Footer() {
   return (
-    <FooterStyle>
+    <StyledFooter>
       <i className="far fa-copyright" />
       <span>Albert Chittaphong. All rights reserved.</span>
-    </FooterStyle>
+    </StyledFooter>
   );
 }

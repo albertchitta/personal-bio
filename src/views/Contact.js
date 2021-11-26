@@ -2,15 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContactStyle = styled.div`
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin: 116px auto;
   width: 80%;
+  justify-content: center;
 
   h1 {
-    color: white;
+    color: #606c38;
     font-size: 45px;
     font-weight: 800;
-    margin-top: 116px;
-    margin-left: 36px;
+    text-align: center;
   }
 
   .card-container {
@@ -18,42 +20,47 @@ const ContactStyle = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    margin: 50px auto;
+    margin-top: 50px;
     justify-content: center;
+    // flex: 1;
 
     .card {
       width: 450px;
       height: 150px;
       border-radius: 6px;
       margin: 18px;
-      background-color: #111319;
+      background-color: #dda15e;
       border-color: white;
 
       .card-body {
         display: flex;
         flex-direction: row;
-      }
 
-      .card-title {
-        font-size: 25px;
-        color: white;
-      }
+        .card-title {
+          font-size: 24px;
+          color: white;
+        }
 
-      i {
-        font-size: 24px;
-        color: white;
-        background-color: #34495e;
-        border-radius: 50%;
-        padding: 16px;
-      }
+        i {
+          font-size: 24px;
+          color: white;
+          background-color: #283618;
+          border-radius: 50%;
+          padding: 16px;
+        }
 
-      .card-text {
-        font-size: 24px;
-        color: #a3a9bd;
-      }
+        .fa-map-marker-alt {
+          font-size: 32px;
+        }
 
-      .email {
-        text-decoration: none;
+        .card-text {
+          font-size: 18px;
+          color: white;
+        }
+
+        .email {
+          text-decoration: none;
+        }
       }
     }
   }
@@ -95,11 +102,11 @@ export default function Contact() {
         <div className="card">
           <div className="card-body">
             <span className="fa-stack fa-2x">
-              <i className="fas fa-map-marker-alt" />
+              <i className="fas fa-search-location" />
             </span>
             <div>
               <h5 className="card-title">Address</h5>
-              <p className="card-text">Huntsville, AL</p>
+              <p className="card-text">Huntsville, Alabama</p>
             </div>
           </div>
         </div>

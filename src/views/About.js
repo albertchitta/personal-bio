@@ -2,19 +2,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const AboutStyle = styled.div`
-  position: absolute;
+const StyledAbout = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 116px auto;
+  width: 80%;
+  justify-content: center;
 
   h1 {
-    color: white;
+    color: #606c38;
     font-size: 45px;
     font-weight: 800;
-    margin-top: 116px;
-    margin-left: 36px;
+    text-align: center;
   }
 
   .about {
-    width: 40%;
     font-weight: 600;
     margin-top: 50px;
     display: flex;
@@ -22,30 +24,27 @@ const AboutStyle = styled.div`
     .name,
     em,
     strong {
-      color: white;
+      color: #bc6c25;
     }
 
     p {
-      color: #a3a9bd;
+      max-width: 80%;
+      color: #283618;
       font-size: 18px;
-      margin-left: 36px;
     }
-  }
 
-  img {
-    width: 40%;
-    height: auto;
-    position: absolute;
-    border-radius: 10px;
-    top: 166;
-    right: 0;
-    margin-right: 36px;
+    img {
+      max-width: 40%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: auto;
+    }
   }
 `;
 
 export default function About() {
   return (
-    <AboutStyle>
+    <StyledAbout>
       <h1>About Me</h1>
       <div className="about">
         <div className="about-text">
@@ -88,6 +87,6 @@ export default function About() {
           alt="Avatar"
         />
       </div>
-    </AboutStyle>
+    </StyledAbout>
   );
 }

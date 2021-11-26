@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import RightNav from './RightNav';
 
@@ -8,7 +9,7 @@ const StyledBurger = styled.div`
   position: fixed;
   top: 15px;
   right: 20px;
-  z-index: 20;
+  z-index: 100;
   display: none;
 
   @media (max-width: 768px) {
@@ -20,7 +21,7 @@ const StyledBurger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => (open ? '#ccc' : 'white')};
+    background-color: ${({ open }) => (open ? '#283618' : '#606c38')};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -40,7 +41,7 @@ const StyledBurger = styled.div`
   }
 `;
 
-export default function Burger() {
+export default function Burger({ user }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -50,7 +51,15 @@ export default function Burger() {
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open} setOpen={setOpen} />
+      <RightNav open={open} setOpen={setOpen} user={user} />
     </>
   );
 }
+
+Burger.propTypes = {
+  user: PropTypes.node,
+};
+
+Burger.defaultProps = {
+  user: null,
+};
