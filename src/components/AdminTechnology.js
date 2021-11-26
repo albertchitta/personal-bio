@@ -13,9 +13,8 @@ const TechnologyStyle = styled.div`
     width: 250px;
     height: 250px;
     border-radius: 6px;
-    background-color: #191c26;
-    // border: none;
-    border-color: white;
+    background-color: #fefae0;
+    border-color: #283618;
     justify-content: center;
 
     img {
@@ -25,13 +24,25 @@ const TechnologyStyle = styled.div`
     }
 
     .card-title {
-      color: white;
+      color: #283618;
       text-align: center;
     }
 
-    i {
-      color: white;
-      cursor: pointer;
+    .mod {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 50px;
+      align-items: center;
+      font-size: 24px;
+
+      i {
+        color: #dda15e;
+        cursor: pointer;
+      }
+
+      i:hover {
+        color: #bc6c25;
+      }
     }
 `;
 
@@ -54,10 +65,15 @@ export default function Technology({ technology, setTechnologies }) {
         <div className="card-body">
           <h5 className="card-title">{technology.name}</h5>
         </div>
-        <i className="fas fa-trash-alt" onClick={() => handleClick('delete')} />
-        <Link to={`/edit-technology/${technology.firebaseKey}`}>
-          <i className="fas fa-edit" />
-        </Link>
+        <div className="mod">
+          <Link to={`/edit-technology/${technology.firebaseKey}`}>
+            <i className="fas fa-edit" />
+          </Link>
+          <i
+            className="fas fa-trash-alt"
+            onClick={() => handleClick('delete')}
+          />
+        </div>
       </div>
     </TechnologyStyle>
   );

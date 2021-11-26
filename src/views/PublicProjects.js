@@ -6,47 +6,29 @@ import { getProjects } from '../api/data/projectData';
 import PublicProject from '../components/PublicProject';
 
 const ProjectsStyle = styled.div`
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin: 116px auto;
+  width: 80%;
+  justify-content: center;
 
   .title {
-    display: flex;
-    justify-content: space-between;
-
     h1 {
-      color: white;
+      color: #606c38;
       font-size: 45px;
       font-weight: 800;
-      margin-top: 116px;
-      margin-left: 36px;
-    }
-
-    a {
-      height: 10px;
-      margin-top: 135px;
-      margin-right: 50px;
-      margin-left: 100px;
-
-      i {
-        color: green;
-        font-size: 25px;
-        font-weight: 800;
-      }
+      text-align: center;
     }
   }
 
   .card-container {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     margin: 50px auto;
     justify-content: center;
 
     h3 {
-      color: white;
-    }
-
-    .card {
-      margin: 20px;
+      color: #283618;
     }
   }
 `;

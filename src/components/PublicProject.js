@@ -4,16 +4,17 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const ProjectStyle = styled.div`
-  position: relative;
   text-align: center;
   color: white;
 
   .card {
+    justify-content: center;
     width: 400px;
     border-radius: 6px;
-    background-color: #191c26;
+    background-color: #fefae0;
+    border-color: #283618;
     justify-content: center;
-    border: 1px solid white;
+    margin: 24px;
 
     img {
       width: 100%;

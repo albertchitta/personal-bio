@@ -9,19 +9,17 @@ import { Link } from 'react-router-dom';
 import { deleteProject } from '../api/data/projectData';
 
 const ProjectStyle = styled.div`
-  position: relative;
   text-align: center;
   color: white;
-  
+
   .card {
-    // border: none;
-    border-color: white;
     justify-content: center;
     width: 400px;
     border-radius: 6px;
-    background-color: #191c26;
+    background-color: #fefae0;
+    border-color: #283618;
     justify-content: center;
-    border: 1px solid white;
+    margin: 24px;
 
     img {
       width: 100%;
@@ -36,10 +34,22 @@ const ProjectStyle = styled.div`
       transform: translate(-50%, -50%);
     }
 
-    i {
-      color: white;
-      cursor: pointer;
+    .mod {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 50px;
+      align-items: center;
+      font-size: 24px;
+      i {
+        color: #dda15e;
+        cursor: pointer;
+      }
+
+      i:hover {
+        color: #bc6c25;
+      }
     }
+  }
 `;
 
 export default function Project({ project, setProjects }) {
@@ -57,13 +67,18 @@ export default function Project({ project, setProjects }) {
         <div className="card-body">
           <h5 className="card-title">{project.name}</h5>
         </div>
-        <i className="fas fa-trash-alt" onClick={() => handleClick('delete')} />
-        <Link to={`/edit-project/${project.firebaseKey}`}>
-          <i className="fas fa-edit" />
-        </Link>
         <Link to={`/projects/${project.firebaseKey}`}>
           <h2>Learn More</h2>
         </Link>
+        <div className="mod">
+          <Link to={`/edit-project/${project.firebaseKey}`}>
+            <i className="fas fa-edit" />
+          </Link>
+          <i
+            className="fas fa-trash-alt"
+            onClick={() => handleClick('delete')}
+          />
+        </div>
       </div>
     </ProjectStyle>
   );

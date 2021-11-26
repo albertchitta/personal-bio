@@ -5,12 +5,17 @@ import TechnologyForm from '../components/TechnologyForm';
 import { getTechnology } from '../api/data/technologyData';
 
 const EditTechnologyStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 116px auto;
+  width: 100%;
+  justify-content: center;
+
   h1 {
-    color: white;
+    color: #606c38;
     font-size: 45px;
     font-weight: 800;
-    margin-top: 116px;
-    margin-left: 36px;
+    text-align: center;
   }
 `;
 

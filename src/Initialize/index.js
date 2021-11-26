@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import firebase from 'firebase/app';
-import Navigation from '../components/Navigation';
 import AdminRoutes from '../routes/AdminRoutes';
 import PublicRoutes from '../routes/PublicRoutes';
 import 'firebase/auth';
+import Navbar from '../components/Nav/Navbar';
 
-const ContainerStyle = styled.div`
+const StyledContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 function Initialize() {
@@ -30,8 +32,8 @@ function Initialize() {
   }, []);
 
   return (
-    <ContainerStyle>
-      <Navigation user={user} />
+    <StyledContainer>
+      <Navbar user={user} />
       {user?.isAdmin ? (
         <>
           <AdminRoutes />
@@ -41,7 +43,7 @@ function Initialize() {
           <PublicRoutes user={user} />
         </>
       )}
-    </ContainerStyle>
+    </StyledContainer>
   );
 }
 

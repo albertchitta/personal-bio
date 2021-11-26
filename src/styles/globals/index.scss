@@ -2,71 +2,71 @@
 
 body {
   background-color: $favColor !important;
-  display: flex;
+  // display: flex; removed for new navbar
 
-  .pro-sidebar {
-    background-color: $sidebar-bg-color;
-    color: $sidebar-color;
-    height: 100vh;
-    width: $sidebar-width;
+//   .pro-sidebar {
+//     background-color: $sidebar-bg-color;
+//     color: $sidebar-color;
+//     height: 100vh;
+//     width: $sidebar-width;
 
-    .pro-menu {
-      a, a:hover {
-        color: $sidebar-color;
-      }
-    }
+//     .pro-menu {
+//       a, a:hover {
+//         color: $sidebar-color;
+//       }
+//     }
 
-    .pro-sidebar-inner {
-      background-color: $sidebar-bg-color;
-      position: fixed;
-      width: $sidebar-width;
-    }
+//     .pro-sidebar-inner {
+//       background-color: $sidebar-bg-color;
+//       position: fixed;
+//       width: $sidebar-width;
+//     }
 
-    .pro-sidebar-header {
-      .first-word {
-        color: #527ca6;
-        text-decoration: underline;
-      }
-      padding: 30px 40px;
-      border-bottom: 1px solid #5e5e5e !important;
-    }
+//     .pro-sidebar-header {
+//       .first-word {
+//         color: #527ca6;
+//         text-decoration: underline;
+//       }
+//       padding: 30px 40px;
+//       border-bottom: 1px solid #5e5e5e !important;
+//     }
 
-    .pro-sidebar-content {
-      justify-content: center;
-      flex: 10%;
-      font-weight: 500;
-      padding: 40px 30px;
-      border-bottom: 1px solid #5e5e5e !important;
+//     .pro-sidebar-content {
+//       justify-content: center;
+//       flex: 10%;
+//       font-weight: 500;
+//       padding: 40px 30px;
+//       border-bottom: 1px solid #5e5e5e !important;
 
-      .pro-menu-item {
-        margin: 10px 0;
-      }
-    }
+//       .pro-menu-item {
+//         margin: 10px 0;
+//       }
+//     }
 
-    .pro-menu-item:hover {
-      background-color: $favColor;
-      border-radius: 8px;
-    }
+//     .pro-menu-item:hover {
+//       background-color: $favColor;
+//       border-radius: 8px;
+//     }
 
-    .pro-menu-item-active {
-      background-color: $favColor;
-      border-radius: 8px;
-      color: $sidebar-color !important;
-      font-size: 24px !important;
-    }
+//     .pro-menu-item-active {
+//       background-color: $favColor;
+//       border-radius: 8px;
+//       color: $sidebar-color !important;
+//       font-size: 24px !important;
+//     }
 
-    .pro-sidebar-footer {
-      padding: 48px 40px;
-      justify-content: center;
+//     .pro-sidebar-footer {
+//       padding: 48px 40px;
+//       justify-content: center;
       
-      a {
-        color: $sidebar-color;
-        text-decoration: none;
-      }
+//       a {
+//         color: $sidebar-color;
+//         text-decoration: none;
+//       }
 
-      a:hover {
-        color: #527ca6;
-      }
-    }
-  }
+//       a:hover {
+//         color: #527ca6;
+//       }
+//     }
+//   }
 }

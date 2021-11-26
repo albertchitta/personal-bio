@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { getProject } from '../api/data/projectData';
 
-const DetailsStyle = styled.div`
+const StyledDetails = styled.div`
   max-width: 1200px;
   margin: 42px auto;
   color: black;
@@ -32,7 +32,7 @@ export default function Details() {
   }, []);
 
   return (
-    <DetailsStyle>
+    <StyledDetails>
       <div className="card">
         <div className="row no-gutters">
           <div className="col-auto">
@@ -62,6 +62,6 @@ export default function Details() {
           </div>
         </div>
       </div>
-    </DetailsStyle>
+    </StyledDetails>
   );
 }
