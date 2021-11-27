@@ -15,7 +15,7 @@ const TechnologiesStyle = styled.div`
 
   .title {
     h1 {
-      color: #606c38;
+      color: #2f4550;
       font-size: 45px;
       font-weight: 800;
       text-align: center;
@@ -25,13 +25,13 @@ const TechnologiesStyle = styled.div`
       float: right;
 
       i {
-        color: #dda15e;
+        color: #52b788;
         font-size: 25px;
         font-weight: 800;
       }
 
       i:hover {
-        color: #bc6c25;
+        color: #40916c;
       }
     }
   }

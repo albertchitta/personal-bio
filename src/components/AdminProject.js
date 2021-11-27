@@ -16,7 +16,7 @@ const ProjectStyle = styled.div`
     justify-content: center;
     width: 400px;
     border-radius: 6px;
-    background-color: #fefae0;
+    background-color: #f4f4f9;
     border-color: #283618;
     justify-content: center;
     margin: 24px;
@@ -41,12 +41,12 @@ const ProjectStyle = styled.div`
       align-items: center;
       font-size: 24px;
       i {
-        color: #dda15e;
+        color: #5bc0be;
         cursor: pointer;
       }
 
       i:hover {
-        color: #bc6c25;
+        color: #586f7c;
       }
     }
   }

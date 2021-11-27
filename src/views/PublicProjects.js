@@ -14,7 +14,7 @@ const ProjectsStyle = styled.div`
 
   .title {
     h1 {
-      color: #606c38;
+      color: #2f4550;
       font-size: 45px;
       font-weight: 800;
       text-align: center;

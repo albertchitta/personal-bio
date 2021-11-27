@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Modal } from 'react-bootstrap';
 
-const ProjectStyle = styled.div`
+const StyledProject = styled.div`
   text-align: center;
   color: white;
 
   .card {
     justify-content: center;
-    width: 400px;
+    width: 600px;
     border-radius: 6px;
-    background-color: #fefae0;
-    border-color: #283618;
+    box-shadow: 0px 0px 10px 1px #888888;
+    background-color: #f4f4f9;
     justify-content: center;
     margin: 24px;
 
@@ -22,17 +23,67 @@ const ProjectStyle = styled.div`
       object-fit: contain;
     }
 
+    .card-body:hover {
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      transition: all 0.2s linear;
+
+      img {
+        filter: brightness(30%);
+        transition: all 0.2s linear;
+      }
+
+      .card-title {
+        visibility: visible;
+      }
+
+      .learn-more {
+        visibility: visible;
+      }
+    }
+
     .card-title {
       position: absolute;
-      top: 50%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
+      visibility: hidden;
+      font-size: 32px;
     }
+
+    .learn-more {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      background-color: #5bc0be;
+      border-color: #5bc0be;
+    }
+
+    .learn-more:hover {
+      background-color: #586f7c;
+      border-color: #586f7c;
+    }
+  }
+
+  .modal-dialog {
+    .modal-footer {
+      .website {
+        background-color: green;
+      }
+    }
+  }
 `;
 
 export default function Project({ project }) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
-    <ProjectStyle>
+    <StyledProject>
       <div className="card">
         <div className="card-body">
           <img
@@ -41,12 +92,52 @@ export default function Project({ project }) {
             alt={project.name}
           />
           <h5 className="card-title">{project.name}</h5>
-          <Link to={`/projects/${project.firebaseKey}`}>
-            <h2>Learn More</h2>
-          </Link>
+          {/* <Link to={`/projects/${project.firebaseKey}`}>
+            <button type="button" className="btn btn-primary">Learn More</button>
+          </Link> */}
+          <button
+            type="button"
+            className="btn btn-primary learn-more"
+            onClick={handleShow}
+          >
+            Learn More
+          </button>
         </div>
       </div>
-    </ProjectStyle>
+      <Modal
+        show={show}
+        size="lg"
+        onHide={() => setShow(false)}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>{project.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, youre reading this text in a modal!</Modal.Body>
+        <Modal.Footer as="div" bsPrefix="modal-footer">
+          <a
+            aria-label="github"
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary github"
+            onClick={handleClose}
+          >
+            <i className="fab fa-github" /><span>  GitHub</span>
+          </a>
+          <a
+            // aria-label="website"
+            href={project.websiteUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary website"
+            onClick={handleClose}
+          >
+            <i className="fas fa-external-link-alt" /><span>  Website</span>
+          </a>
+        </Modal.Footer>
+      </Modal>
+    </StyledProject>
   );
 }
 
@@ -54,6 +145,8 @@ Project.propTypes = {
   project: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
+    githubUrl: PropTypes.string,
+    websiteUrl: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
 };

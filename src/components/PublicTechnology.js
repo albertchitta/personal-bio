@@ -7,7 +7,7 @@ const TechnologyStyle = styled.div`
     width: 250px;
     height: 250px;
     border-radius: 6px;
-    background-color: #fefae0;
+    background-color: #f4f4f9;
     border: none;
     justify-content: center;
 
@@ -18,7 +18,7 @@ const TechnologyStyle = styled.div`
     }
 
     .card-title {
-      color: #283618;
+      color: #586f7c;
       text-align: center;
     }
 `;

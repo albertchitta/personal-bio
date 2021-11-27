@@ -9,7 +9,7 @@ const ContactStyle = styled.div`
   justify-content: center;
 
   h1 {
-    color: #606c38;
+    color: #2f4550;
     font-size: 45px;
     font-weight: 800;
     text-align: center;
@@ -22,15 +22,15 @@ const ContactStyle = styled.div`
     width: 100%;
     margin-top: 50px;
     justify-content: center;
-    // flex: 1;
 
     .card {
       width: 450px;
       height: 150px;
       border-radius: 6px;
       margin: 18px;
-      background-color: #dda15e;
-      border-color: white;
+      background-color: #2f4550;
+      border-color: #f4f4f9;
+      color: #f4f4f9;
 
       .card-body {
         display: flex;
@@ -44,7 +44,7 @@ const ContactStyle = styled.div`
         i {
           font-size: 24px;
           color: white;
-          background-color: #283618;
+          background-color: #586f7c;
           border-radius: 50%;
           padding: 16px;
         }
