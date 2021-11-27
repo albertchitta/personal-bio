@@ -8,13 +8,12 @@ const StyledNavbar = styled.div`
   height: 55px;
   // border-bottom: 2px solid #283618;
   padding: 0 20px;
-  color: #606c38;
+  color: #f4f4f9;
   display: flex;
   justify-content: space-between;
   font-weight: 500;
   position: fixed;
-  background-color: #fefae0;
-  // background-color: #dda15e;
+  background-color: #000000;
   z-index: 20;
 
   .logo {

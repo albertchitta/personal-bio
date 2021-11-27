@@ -11,6 +11,9 @@ const StyledBurger = styled.div`
   right: 20px;
   z-index: 100;
   display: none;
+  :hover {
+    cursor: pointer;
+  }
 
   @media (max-width: 768px) {
     display: flex;
@@ -21,7 +24,8 @@ const StyledBurger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => (open ? '#283618' : '#606c38')};
+    // background-color: ${({ open }) => (open ? '#283618' : '#606c38')};
+    background-color: ${({ open }) => (open ? 'white' : 'white')};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;

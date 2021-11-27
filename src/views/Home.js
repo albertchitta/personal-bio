@@ -16,18 +16,18 @@ const StyledHome = styled.div`
   }
 
   h1 {
-    color: #606c38;
+    color: #2f4550;
     font-size: 45px;
     font-weight: 800;
   }
 
   p {
-    color: #283618;
+    color: #586f7c;
     font-size: 24px;
   }
 
   i {
-    color: #bc6c25;
+    color: #586f7c;
     font-size: 24px;
     margin-top: 18px;
     padding: 0 18px;
@@ -37,6 +37,7 @@ const StyledHome = styled.div`
 
   .fab:hover {
     transform: scale(1.25);
+    color: #2f4550;
   }
 
   .fa-facebook-f,
@@ -45,14 +46,14 @@ const StyledHome = styled.div`
   }
 
   .line {
-    border: 1px solid #dda15e;
+    border: 1px solid #2f4550;
     width: 100px;
     height: 100px;
   }
 
   .resume {
-    color: #606c38;
-    border: 2px solid #283618;
+    color: #2f4550;
+    border: 2px solid #000000;
     margin-top: 48px;
     background-color: transparent;
     border-radius: 30px;
@@ -64,8 +65,8 @@ const StyledHome = styled.div`
   }
 
   .resume:hover {
-    background-color: #dda15e;
-    color: #fefae0;
+    background-color: #5bc0be;
+    color: #f4f4f9;
   }
 `;
 

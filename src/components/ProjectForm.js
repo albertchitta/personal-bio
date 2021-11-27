@@ -9,7 +9,7 @@ import { createProject, updateProject } from '../api/data/projectData';
 
 const FormStyle = styled.div`
   border-style: solid;
-  border-color: #283618;
+  border-color: #000000;
   border-width: 1px;
   padding: 16px;
   width: 644px;
@@ -17,7 +17,7 @@ const FormStyle = styled.div`
   border-radius: 10px;
 
   Label {
-    color: #606c38;
+    color: #2f4550;
   }
 
   Input {
@@ -27,12 +27,12 @@ const FormStyle = styled.div`
   Button {
     margin-top: 24px;
     color: white;
-    background-color: #dda15e;
-    border-color: #283618;
+    background-color: #5bc0be;
+    border-color: #000000;
   }
 
   Button:hover {
-    background-color: #bc6c25;
+    background-color: #586f7c;
   }
 `;
 

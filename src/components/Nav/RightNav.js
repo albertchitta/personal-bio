@@ -15,32 +15,32 @@ const StyledUl = styled.div`
 
   li {
     padding: 18px 15px;
-    color: #606c38;
+    color: #f4f4f9;
     font-weight: 500;
-    // cursor: pointer;
 
     a {
-      color: #606c38;
+      color: #f4f4f9;
       text-decoration: none;
     }
     a:hover {
-      color: #283618;
+      color: #5bc0be;
     }
   }
 
   .sign-in:hover {
-    color: #283618;
+    color: #5bc0be;
     cursor: pointer;
   }
 
   .item-active {
     font-size: 18px;
     font-weight: 800;
+    color: #5bc0be;
   }
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #dda15e;
+    background-color: #000000;
     position: fixed;
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
@@ -58,15 +58,19 @@ const StyledUl = styled.div`
     }
 
     li:hover {
-      background-color: #fefae0;
+      background-color: #f4f4f9;
       border-radius: 8px;
       margin-right: 10px;
       margin-left: 10px;
       transition: all 0.2s linear;
 
       a {
-        color: #283618;
+        color: #2f4550;
       }
+    }
+
+    .sign-in:hover {
+      color: #2f4550;
     }
 
     .item {
@@ -78,10 +82,11 @@ const StyledUl = styled.div`
     .item-active {
       font-size: 24px;
       font-weight: 800;
+      color: #5bc0be;
     }
 
     .line {
-      border: 1px solid #fefae0;
+      border: 1px solid #586f7c;
       width: 280px;
       margin-left: 10px;
       margin-top: 10px;

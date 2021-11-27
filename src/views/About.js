@@ -10,7 +10,7 @@ const StyledAbout = styled.div`
   justify-content: center;
 
   h1 {
-    color: #606c38;
+    color: #2f4550;
     font-size: 45px;
     font-weight: 800;
     text-align: center;
@@ -24,12 +24,12 @@ const StyledAbout = styled.div`
     .name,
     em,
     strong {
-      color: #bc6c25;
+      color: #5bc0be;
     }
 
     p {
       max-width: 80%;
-      color: #283618;
+      color: #586f7c;
       font-size: 18px;
     }
 
