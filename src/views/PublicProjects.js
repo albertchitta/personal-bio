@@ -9,7 +9,6 @@ const ProjectsStyle = styled.div`
   display: flex;
   flex-direction: column;
   margin: 116px auto;
-  width: 80%;
   justify-content: center;
 
   .title {
@@ -18,6 +17,12 @@ const ProjectsStyle = styled.div`
       font-size: 45px;
       font-weight: 800;
       text-align: center;
+    }
+
+    p {
+      color: #586f7c;
+      text-align: center;
+      font-size: 24px;
     }
   }
 
@@ -49,7 +54,8 @@ export default function publicProjects() {
   return (
     <ProjectsStyle>
       <div className="title">
-        <h1>Public Projects</h1>
+        <h1>Projects</h1>
+        <p>Projects I designed and developed using React, JavaScript, CSS, and HTML.</p>
       </div>
       <div className="card-container">
         {projects.length ? (

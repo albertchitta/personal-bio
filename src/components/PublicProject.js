@@ -15,7 +15,19 @@ const StyledProject = styled.div`
     box-shadow: 0px 0px 10px 1px #888888;
     background-color: #f4f4f9;
     justify-content: center;
-    margin: 24px;
+    margin: 0 24px 48px 24px;
+
+    @media (max-width: 768px) {
+      width: 300px;
+
+      .card-body > .card-title {
+        font-size: 18px;
+      }
+
+      .card-body > .learn-more {
+        font-size: 12px;
+      }
+    }
 
     img {
       width: 100%;
@@ -66,12 +78,33 @@ const StyledProject = styled.div`
       border-color: #586f7c;
     }
   }
+`;
 
-  .modal-dialog {
-    .modal-footer {
-      .website {
-        background-color: green;
-      }
+const StyledLinks = styled.div`
+  a {
+    background-color: #5bc0be;
+    border-color: #5bc0be;
+    margin-right: 10px;
+  }
+  a:hover {
+    background-color: #586f7c;
+    border-color: #586f7c;
+  }
+`;
+
+const StyledVideo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+
+  iframe {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
+
+    @media (max-width: 768px) {
+      height: 100%;
     }
   }
 `;
@@ -92,9 +125,6 @@ export default function Project({ project }) {
             alt={project.name}
           />
           <h5 className="card-title">{project.name}</h5>
-          {/* <Link to={`/projects/${project.firebaseKey}`}>
-            <button type="button" className="btn btn-primary">Learn More</button>
-          </Link> */}
           <button
             type="button"
             className="btn btn-primary learn-more"
@@ -111,30 +141,45 @@ export default function Project({ project }) {
         aria-labelledby="example-modal-sizes-title-lg"
       >
         <Modal.Header closeButton>
-          <Modal.Title>{project.name}</Modal.Title>
+          <Modal.Title style={{ color: '#2f4550' }}>{project.name}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, youre reading this text in a modal!</Modal.Body>
+        <Modal.Body style={{ color: '#586f7c' }}>
+          <StyledVideo>
+            <iframe
+              src={project.loomUrl}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title="video"
+            />
+            <p>{project.description}</p>
+          </StyledVideo>
+        </Modal.Body>
         <Modal.Footer as="div" bsPrefix="modal-footer">
-          <a
-            aria-label="github"
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-primary github"
-            onClick={handleClose}
-          >
-            <i className="fab fa-github" /><span>  GitHub</span>
-          </a>
-          <a
-            // aria-label="website"
-            href={project.websiteUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-primary website"
-            onClick={handleClose}
-          >
-            <i className="fas fa-external-link-alt" /><span>  Website</span>
-          </a>
+          <StyledLinks>
+            <a
+              aria-label="github"
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary github"
+              onClick={handleClose}
+            >
+              <i className="fab fa-github" />
+              <span> GitHub</span>
+            </a>
+            <a
+              aria-label="website"
+              href={project.websiteUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary website"
+              onClick={handleClose}
+            >
+              <i className="fas fa-external-link-alt" />
+              <span> Website</span>
+            </a>
+          </StyledLinks>
         </Modal.Footer>
       </Modal>
     </StyledProject>
@@ -147,6 +192,8 @@ Project.propTypes = {
     name: PropTypes.string,
     githubUrl: PropTypes.string,
     websiteUrl: PropTypes.string,
+    loomUrl: PropTypes.string,
+    description: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
 };

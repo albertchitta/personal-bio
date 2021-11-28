@@ -79,7 +79,7 @@ export default function Home() {
       />
       <h1>Albert Chittaphong</h1>
       <p>
-        Front-end software developer with a focus in web design and performance.
+        Software developer with a focus in web design and performance.
       </p>
       <span>
         <a

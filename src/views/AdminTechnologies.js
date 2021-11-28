@@ -20,6 +20,12 @@ const TechnologiesStyle = styled.div`
       font-weight: 800;
       text-align: center;
     }
+    
+    p {
+      color: #586f7c;
+      text-align: center;
+      font-size: 24px;
+    }
 
     a {
       float: right;
@@ -64,7 +70,8 @@ export default function AdminTechnologies() {
   return (
     <TechnologiesStyle>
       <div className="title">
-        <h1>Admin Technologies</h1>
+        <h1>Technologies</h1>
+        <p>A list of languages and tools I use in my career.</p>
         <Link to="/add-technology">
           <i className="fas fa-plus" />
         </Link>

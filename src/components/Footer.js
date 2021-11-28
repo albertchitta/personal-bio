@@ -6,21 +6,26 @@ const StyledFooter = styled.div`
   bottom: 0;
   right: 0;
   width: 100%;
-  color: #283618;
+  color: #586f7c;
   text-align: center;
-  background-color: red;
-  height: 25px;
+  height: 3rem;
+  position: absolute;
+  font-size: 12px;
+  background-color: white;
+  padding-top: 14px;
 
   i {
     margin-right: 5px;
+    margin-left: 5px;
   }
 `;
 
 export default function Footer() {
   return (
     <StyledFooter>
+      <span>Copyright</span>
       <i className="far fa-copyright" />
-      <span>Albert Chittaphong. All rights reserved.</span>
+      <span>2021 Albert Chittaphong. All rights reserved.</span>
     </StyledFooter>
   );
 }

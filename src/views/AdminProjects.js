@@ -10,8 +10,8 @@ const ProjectsStyle = styled.div`
   display: flex;
   flex-direction: column;
   margin: 116px auto;
-  width: 80%;
   justify-content: center;
+  width: 80%;
 
   .title {
     h1 {
@@ -19,6 +19,12 @@ const ProjectsStyle = styled.div`
       font-size: 45px;
       font-weight: 800;
       text-align: center;
+    }
+
+    p {
+      color: #586f7c;
+      text-align: center;
+      font-size: 24px;
     }
 
     a {
@@ -64,7 +70,8 @@ export default function AdminProjects() {
   return (
     <ProjectsStyle>
       <div className="title">
-        <h1>Admin Projects</h1>
+        <h1>Projects</h1>
+        <p>Projects I designed and developed using React, JavaScript, CSS, and HTML.</p>
         <Link to="/add-project">
           <i className="fas fa-plus" />
         </Link>
