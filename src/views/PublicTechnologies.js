@@ -7,7 +7,6 @@ const TechnologiesStyle = styled.div`
   display: flex;
   flex-direction: column;
   margin: 116px auto;
-  width: 80%;
   justify-content: center;
 
   .title {
@@ -16,6 +15,12 @@ const TechnologiesStyle = styled.div`
       font-size: 45px;
       font-weight: 800;
       text-align: center;
+    }
+
+    p {
+      color: #586f7c;
+      text-align: center;
+      font-size: 24px;
     }
   }
 
@@ -48,6 +53,7 @@ export default function PublicTechnologies() {
     <TechnologiesStyle>
       <div className="title">
         <h1>Technologies</h1>
+        <p>A list of languages and tools I use in my career.</p>
       </div>
       <div className="card-container">
         {technologies.length ? (

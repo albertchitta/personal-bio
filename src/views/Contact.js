@@ -15,6 +15,12 @@ const ContactStyle = styled.div`
     text-align: center;
   }
 
+  p {
+    color: #586f7c;
+    text-align: center;
+    font-size: 24px;
+  }
+
   .card-container {
     display: flex;
     flex-direction: row;
@@ -32,6 +38,10 @@ const ContactStyle = styled.div`
       border-color: #f4f4f9;
       color: #f4f4f9;
 
+      @media (max-width: 768px) {
+        width: 300px;
+      }
+
       .card-body {
         display: flex;
         flex-direction: row;
@@ -43,19 +53,19 @@ const ContactStyle = styled.div`
 
         i {
           font-size: 24px;
-          color: white;
+          color: #f4f4f9;
           background-color: #586f7c;
           border-radius: 50%;
           padding: 16px;
         }
 
-        .fa-map-marker-alt {
-          font-size: 32px;
-        }
-
         .card-text {
-          font-size: 18px;
+          font-size: 16px;
           color: white;
+
+          @media (max-width: 768px) {
+            font-size: 12px;
+          }
         }
 
         .email {
@@ -70,6 +80,7 @@ export default function Contact() {
   return (
     <ContactStyle>
       <h1>Contact Me</h1>
+      <p>Have any questions? I&apos;d love to hear from you.</p>
       <div className="card-container">
         <div className="card">
           <div className="card-body">

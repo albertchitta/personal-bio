@@ -5,11 +5,14 @@ import AdminRoutes from '../routes/AdminRoutes';
 import PublicRoutes from '../routes/PublicRoutes';
 import 'firebase/auth';
 import Navbar from '../components/Nav/Navbar';
+import Footer from '../components/Footer';
 
 const StyledContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
+  min-height: 100vh;
 `;
 
 function Initialize() {
@@ -22,6 +25,7 @@ function Initialize() {
           fullName: authed.displayName,
           profileImage: authed.photoURL,
           uid: authed.uid,
+          email: authed.email,
           isAdmin: process.env.REACT_APP_ADMIN_UID === authed.uid,
         };
         setUser(userInfoObj);
@@ -43,6 +47,7 @@ function Initialize() {
           <PublicRoutes user={user} />
         </>
       )}
+      <Footer />
     </StyledContainer>
   );
 }

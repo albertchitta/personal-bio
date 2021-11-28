@@ -4,8 +4,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Spinner } from 'reactstrap';
-import { signInUser } from '../../api/auth';
+import { signInUser, signOutUser } from '../../api/auth';
 
 const StyledUl = styled.div`
   list-style: none;
@@ -46,8 +45,8 @@ const StyledUl = styled.div`
     top: 0;
     right: 0;
     height: 100vh;
-    width: ${({ open }) => (open ? '300px' : '0')};
-    // width: 300px;
+    // width: ${({ open }) => (open ? '300px' : '0')};
+    width: 300px;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
     padding-left: 0;
@@ -178,20 +177,15 @@ export default function RightNav({ open, setOpen, user }) {
         </Link>
       </li>
       <div className="line" />
-      <>
-        {user === null ? (
-          <div className="text-center">
-            <Spinner
-              style={{ width: '10rem', height: '10rem' }}
-              color="warning"
-            />
-          </div>
-        ) : (
-          <li className="sign-in" onClick={signInUser}>
-            SIGN IN
-          </li>
-        )}
-      </>
+      {user ? (
+        <li className="sign-in" onClick={signOutUser}>
+          SIGN OUT
+        </li>
+      ) : (
+        <li className="sign-in" onClick={signInUser}>
+          ADMIN
+        </li>
+      )}
     </StyledUl>
   );
 }

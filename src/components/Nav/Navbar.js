@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Burger from './Burger';
 
 const StyledNavbar = styled.div`
   width: 100%;
   height: 55px;
-  // border-bottom: 2px solid #283618;
   padding: 0 20px;
   color: #f4f4f9;
   display: flex;
@@ -19,13 +19,27 @@ const StyledNavbar = styled.div`
   .logo {
     padding: 15px 0;
     font-size: 24px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    span {
+      color: #5bc0be;
+      text-decoration: underline;
+    }
   }
 `;
 
 export default function Navbar({ user }) {
   return (
     <StyledNavbar>
-      <div className="logo">Albert</div>
+      <div className="logo">
+        <Link to="/">
+          <span>A</span>lbert
+        </Link>
+      </div>
       <Burger user={user} />
     </StyledNavbar>
   );

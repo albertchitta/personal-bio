@@ -41,6 +41,7 @@ const initialState = {
   name: '',
   githubUrl: '',
   websiteUrl: '',
+  loomUrl: '',
   description: '',
 };
 
@@ -57,6 +58,7 @@ export default function ProjectForm({ project = {} }) {
           name: project.name,
           githubUrl: project.githubUrl,
           websiteUrl: project.websiteUrl,
+          loomUrl: project.loomUrl,
           description: project.description,
           firebaseKey: project.firebaseKey,
         });
@@ -140,6 +142,18 @@ export default function ProjectForm({ project = {} }) {
             id="websiteUrl"
             placeholder="Add a Website URL"
             value={formInput.websiteUrl || ''}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="loomUrl">Loom URL</Label>
+          <Input
+            type="text"
+            name="loomUrl"
+            id="loomUrl"
+            placeholder="Add a Loom URL"
+            value={formInput.loomUrl || ''}
             onChange={handleChange}
             required
           />
