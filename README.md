@@ -1,82 +1,92 @@
-# React Template
-[![Netlify Status](https://api.netlify.com/api/v1/badges/339c4ae9-fc7f-41b4-9b49-2dab0a20eaba/deploy-status)](https://app.netlify.com/sites/react-template-21/deploys)
+# My Portfolio  [![Netlify Status](https://api.netlify.com/api/v1/badges/de573769-923c-468a-8505-15a10e85f81f/deploy-status)](https://app.netlify.com/sites/albert-chittaphong/deploys)
+<!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
 
-[See Live Demo of this Template](https://react-template-21.netlify.app/)
+![Home](https://user-images.githubusercontent.com/83558122/143802251-962d38c2-c73c-4b11-986f-bb6c25ad9535.PNG)
+My personal portfolio website! Click below to find out more.
 
-This template includes all the dependencies and set up needed for you to work within defined code standards and structure to get you up and running quickly.
+[View App](https://albert-chittaphong.netlify.app/)
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Other important tidbits](#other-important-tidbits)
-    - [React Dev Tools](#react-dev-tools)
-    - [Using axios](#using-axios)
-    - [Deploying on Netlify](#deploying-on-netlify)
-___
-
-## Get Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-![Use this Template](./documentation/usetemplate.png)
-
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-![Create Project](./documentation/createproject.png)
-
-3. Clone your new repo to your local machine
-4. Go to the **NEXT** section
-
-## Starting the Project
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name
-1. Open the `/public/index.html` file and change the `title` attribute to the name of your application
-1. Rename the `.env.local.sample` file to `.env.local` file. The final file name should be `.env.local`
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short
-1. From your command line, be in the root directory and run `npx husky install`
-1. To start your application, run `npm start`
-
-### If you see this, you are set to go!
-![LIT](./documentation/lit-screen.png)
-
-**NOTES:** 
-- Changes you make to the project will make the browser reload on save...no more hard refresh unless something goes wrong.
-
-## Other Important Tidbits
-### React Dev Tools
-From this time forward, you will be expected to have a clean console in order for your assignments to be approved. Use [React Developer Tools Chrome Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) to help with debugging.
-### Including Images with React
-If you have a folder of local images that you want to load into your code things get a little strange with webpack.  Remember the only way webpack knows about assets is if they are imported into your javascript files.  Even our CSS is not added until those files are imported into our javascript files.  Below is some sample code for how to load a local image file into your project
-
-```js
-import cat from './assets/cat.jpg';
-
-<>
-  <img src=${cat} alt="picture of a cat"/>
-</>
-
+## Get Started <!-- OPTIONAL, but doesn't hurt -->
 ```
-### Using Axios
-> For every file you will need to make an API request in, you will need to import Axios
-```js
-import axios from 'axios';
+$ git clone git@github.com:albertchitta/personal-bio.git
+$ cd personal-bio
+```
+## About the User <!-- This is a scaled down user persona -->
+- Users can visit this website to learn about me, a web developer. If you're interested in hiring me or want to see how I built some of my projects step-by-step, this will be a great place to find your answers.
 
-const examplePromise = () => {
-  axios.get('http://localhost:3001/example')
-    .then((data) => {
-      console.warn(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
+## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
+- Authentication (Admin) - Admins can login and logout of the application using Google.
+- CRUD (Admin) - Admins can create, read, update, and delete projects and technologies in private routes.
+- React and Reactstrap for Modals
+- Styled Components
+- Responsive and mobile-friendly
+
+## Video Walkthrough of My Portfolio <!-- A loom link is sufficient -->
+https://www.loom.com/share/957e2bb77c4644abbbf3f6252105a4cc
+
+## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
+- [Check out the deployed site](https://albert-chittaphong.netlify.app/)
+- [Wireframes](https://docs.google.com/presentation/d/13uMScZtJwASq-cOPP9HU5YLvPGPFlOm3b74B4tf3rWE/edit?usp=sharing)
+- [ERD](https://dbdiagram.io/d/61a448358c901501c0d66ea4)
+- [Project Board](https://github.com/albertchitta/personal-bio/projects/1)
+
+## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
+Modal is used to show the details of a project including a loom video, a link to GitHub, and a link to the deployed website.
+```
+      <Modal
+        show={show}
+        size="lg"
+        onHide={() => setShow(false)}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title style={{ color: '#2f4550' }}>{project.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ color: '#586f7c' }}>
+          <StyledVideo>
+            <iframe
+              src={project.loomUrl}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title="video"
+            />
+            <p>{project.description}</p>
+          </StyledVideo>
+        </Modal.Body>
+        <Modal.Footer as="div" bsPrefix="modal-footer">
+          <StyledLinks>
+            <a
+              aria-label="github"
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary github"
+              onClick={handleClose}
+            >
+              <i className="fab fa-github" />
+              <span> GitHub</span>
+            </a>
+            <a
+              aria-label="website"
+              href={project.websiteUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary website"
+              onClick={handleClose}
+            >
+              <i className="fas fa-external-link-alt" />
+              <span> Website</span>
+            </a>
+          </StyledLinks>
+        </Modal.Footer>
+      </Modal>
 ```
 
-### Deploying on Netlify
+## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
+![about](https://user-images.githubusercontent.com/83558122/143803477-55d60c92-4f73-4ea1-965e-7b7171c6f9df.PNG)
+![projects](https://user-images.githubusercontent.com/83558122/143803483-cda27fa6-5214-47b2-903a-02638a769167.PNG)
+![technologies](https://user-images.githubusercontent.com/83558122/143803487-ffc5fc76-ecaf-4ed7-a967-dcb9a0f4db69.PNG)
 
-- Build Command: `yarn build`
-- Publish directory: `build`
-- **Add Environmental Variables (NOT REQUIRED for Apps that do not use API Keys, etc)**
-    - Any Enviromental variables you are using in your `.env.local` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
-- **Update Firebase URL Settings**
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-# Your own learning
-If you are interested in setting up your own project for things outside of class, you can run the command to start a React project `npx create-react-app {APP_NAME}` and setup all the files and structures from scratch.
+## Contributors
+- [Albert Chittaphong](https://github.com/albertchitta)
