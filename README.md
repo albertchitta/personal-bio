@@ -1,10 +1,10 @@
-# My Portfolio  [![Netlify Status](https://api.netlify.com/api/v1/badges/de573769-923c-468a-8505-15a10e85f81f/deploy-status)](https://app.netlify.com/sites/albert-chittaphong/deploys)
+# My Portfolio  [![Netlify Status](https://api.netlify.com/api/v1/badges/de573769-923c-468a-8505-15a10e85f81f/deploy-status)](https://app.netlify.com/sites/albertchittaphong/deploys)
 <!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
 
 ![Home](https://user-images.githubusercontent.com/83558122/143802251-962d38c2-c73c-4b11-986f-bb6c25ad9535.PNG)
 My personal portfolio website! Click below to find out more.
 
-[View App](https://albert-chittaphong.netlify.app/)
+[View App](https://albertchittaphong.netlify.app/)
 
 ## Get Started <!-- OPTIONAL, but doesn't hurt -->
 ```
@@ -25,7 +25,7 @@ $ cd personal-bio
 https://www.loom.com/share/957e2bb77c4644abbbf3f6252105a4cc
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site](https://albert-chittaphong.netlify.app/)
+- [Check out the deployed site](https://albertchittaphong.netlify.app/)
 - [Wireframes](https://docs.google.com/presentation/d/13uMScZtJwASq-cOPP9HU5YLvPGPFlOm3b74B4tf3rWE/edit?usp=sharing)
 - [ERD](https://dbdiagram.io/d/61a448358c901501c0d66ea4)
 - [Project Board](https://github.com/albertchitta/personal-bio/projects/1)
